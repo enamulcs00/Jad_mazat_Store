@@ -1,0 +1,27 @@
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.modal-title {
+    color: #000;
+    font-weight: bold;
+}
+
+.modal-body {
+    color: #3c3c3c;
+    font-weight: 400;
+}
+
+.topbar .topbar-divider {
+    margin: auto 0.1rem auto 0.5rem;
+}
+
+@media (max-width: 767px) {
+    li.nav-item a img {
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,33 @@
+<h2 mat-dialog-title *ngIf="item">Edit Outlet</h2>
+<h2 mat-dialog-title *ngIf="storeId">Add Outlet</h2>
+<mat-dialog-content>
+    <div class="contact_us_map" *ngIf="latitude && longitude">
+        <agm-map [latitude]="latitude" [longitude]="longitude">
+            <agm-marker (dragEnd)="markerDragEnds($event)" [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"></agm-marker>
+        </agm-map>
+    </div>
+    <form [formGroup]="outletForm">
+        <div class="usr_profile_inrmain">
+            <div class="usr_profile_biodata">
+                <label for="address">Address</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="name" formControlName="address" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddress($event)" placeholder="Address" />
+                    <div *ngIf="submitted && outletForm.controls.address.errors" class="invalid-feedback">
+                        <div *ngIf="outletForm.controls.address.errors.required">
+                            Address is required
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-primary mr-3" *ngIf="storeId" (click)="onSubmit()">
+  Add Outlet
+</button>
+    <button class="btn btn-primary mr-3" *ngIf="item" (click)="onUpdate()">
+  Edit Outlet
+</button>
+    <button class="btn btn-danger" (click)="close()">Close</button>
+</mat-dialog-actions>

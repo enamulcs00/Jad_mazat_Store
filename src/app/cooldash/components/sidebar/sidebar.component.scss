@@ -1,0 +1,112 @@
+.bg-gradient-primary {
+    height: 100% !important;
+    width: 15%;
+    padding-bottom: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    background-color: #fff;
+    transition: all .2s ease;
+    box-shadow: 18px 0px 35px 0px rgba(0, 0, 0, 0.02);
+    z-index: 100;
+}
+
+ul.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordion.toggled .nav-item a span {
+    opacity: 0;
+    display: none;
+}
+
+.sidebar-brand-icon img {
+    width: auto;
+}
+
+.sidebar-brand-text img {
+    width: auto;
+    height: 70px;
+}
+
+.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordion .sidebar-brand-icon {
+    display: none;
+}
+
+.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordion.toggled .sidebar-brand-icon {
+    display: block;
+}
+
+.sidebar .sidebar-brand {
+    height: auto !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 10px 0;
+}
+
+figure {
+    margin-bottom: 0 !important;
+}
+
+.navbar-nav.sidebar.sidebar-dark.accordion.toggled a.sidebar-brand {
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.logo-bold {
+    font-size: 26px;
+    color: #000;
+}
+
+.sidebar .nav-item .nav-link {
+    padding: 0.825rem 1rem;
+}
+
+.sidebar li img {
+    margin-right: 10px;
+}
+
+.sidebar-brand-text figure {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-brand-text figure img {
+    position: relative;
+    top: -1px;
+}
+
+.sidebar .nav-item img {
+    filter: invert(0.5);
+}
+
+.sidebar .nav-item.active img {
+    filter: invert(0.5);
+}
+
+@media (max-width: 767px) {
+    .sidebar .sidebar-brand .sidebar-brand-text {
+        display: none
+    }
+    .logo-bold {
+        display: none;
+    }
+    li.nav-item a img {
+        margin-right: 0;
+    }
+    .sidebar .nav-item .nav-link span {
+        font-size: 0.775rem !important;
+        display: none;
+    }
+    .sidebar-brand-text img {
+        padding-right: 0;
+        left: 10px;
+    }
+    .sidebar {
+        left: -104px;
+        position: relative;
+        width: 0rem;
+    }
+    .sidebar.toggled {
+        width: 6.4rem !important;
+        left: 0;
+    }
+}

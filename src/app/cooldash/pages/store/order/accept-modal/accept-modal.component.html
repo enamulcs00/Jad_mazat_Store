@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Estimate Order Time</h2>
+<mat-dialog-content>
+  <input type="text" [(ngModel)]="time" class="form-control" />
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary mr-3" (click)="onSubmit()">
+    Accept
+  </button>
+  <button class="mat-raised-button" (click)="close()">Reject</button>
+</mat-dialog-actions>

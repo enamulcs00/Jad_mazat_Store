@@ -1,0 +1,158 @@
+<div class="container-fluid" *ngIf="orderDetail">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="m-0 font-weight-bold text-primary">View Order</h6>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button class="btn btn-primary" (click)="history.back()">
+                                <span class="fas fa-arrow-left"></span> Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div *ngIf="orderDetail">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Order Number</label>
+                            <input type="text" name="Name" value="{{orderDetail.orderNumber}}" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input *ngIf="orderDetail.userId" type="text" name="Name"
+                                [value]="orderDetail.userId.firstName +' '+ orderDetail.userId.lastName"
+                                class="form-control" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Store Address</label>
+                            <textarea *ngIf="orderDetail.outletId" type="text" name="Name" class="form-control"
+                                disabled>{{ orderDetail.outletId.address}}
+                                </textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label *ngIf="orderDetail.address">User Address</label>
+                            <textarea *ngIf="orderDetail.address" type="text" name="Name" class="form-control" disabled>{{ orderDetail.address.address}}
+                                </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Store Name</label>
+                            <input type="text" name="open-time" [value]="orderDetail.storeId.name" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Prepration Time</label>
+                            <input type="text" name="discount" [value]="orderDetail.preprationTime" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Delivery Charges</label>
+                            <input type="text" name="open-time" [value]="orderDetail.deliveryFee" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Total Discount</label>
+                            <input type="text" name="open-time" [value]="orderDetail.totalDiscount" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Sub Total Amount</label>
+                            <input type="text" name="open-time" [value]="orderDetail.subTotalAmount"
+                                class="form-control" disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Total Amount</label>
+                            <input type="text" name="open-time" [value]="orderDetail.totalAmount" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Payment Mode</label>
+                            <input type="text" name="open-time" [value]="orderDetail.paymentMode" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Order Date</label>
+                            <input type="text" name="open-time" [value]="orderDetail.date | date: 'yyyy-MM-dd hh:mm:ss a'"
+                                class="form-control" disabled />
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <div class="form-group">
+                            <label>tax</label>
+                            <input type="text" name="open-time" [value]="orderDetail.tax" class="form-control"
+                                disabled />
+                        </div>
+                    </div> -->
+                </div>
+                <div class="row">
+                    <!-- <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Order Date</label>
+                            <input type="text" name="open-time" [value]="orderDetail.date | date: 'yyyy-MM-dd'"
+                                class="form-control" disabled />
+                        </div>
+                    </div> -->
+                    <div class="col-md-6" *ngIf="orderDetail.deliveryDate">
+                        <div class="form-group">
+                            <label>Delivery Date</label>
+                            <input type="text" name="open-time" [value]="orderDetail.deliveryDate | date: 'yyyy-MM-dd hh:mm:ss a'" class="form-control"
+                                disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Items</label>
+                            <ul>
+                                <li *ngFor="let category of orderDetail.items">
+                                    {{ category.itemId.name }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

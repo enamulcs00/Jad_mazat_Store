@@ -1,0 +1,36 @@
+<!-- <div *ngIf="items && items.length > 0">
+  <h2 mat-dialog-title>Order Items</h2>
+  <mat-dialog-content>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Qunatity</th>
+              <th>Amount</th>
+              <th>Total Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items; let i = index">
+              <td>{{ i + serialNumber + 1 }}</td>
+              <td>
+                {{ item._id }}
+              </td>
+              <td>{{ item.quantity }}</td>
+              <td>
+                {{ item.amount }}
+              </td>
+              <td>{{ item.totalAmount }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 *ngIf="items.length == 0" class="text-center">
+          No records found.
+        </h4>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div> -->

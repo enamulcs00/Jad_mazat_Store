@@ -1,0 +1,156 @@
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="tittle_outer">
+                <div class=" user_title">
+                    <div class="user_title_inner">
+                        <h6 class="m-0 text-black">Order</h6>
+                    </div>
+                    <div class="user_add_button">
+                        <button class="btn btn-primary  mr-3" (click)="allOrder()" [ngClass]="{'btn-highlight': status == 'all'}">
+              All Orders
+            </button>
+                        <button class="btn btn-primary btn-primary_border" (click)="pendingOrder()" [ngClass]="{'btn-highlight': status == 'pending'}">
+              Pending Orders
+            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Order No.</th>
+                            <th>Address</th>
+                            <th>Total Amount</th>
+                            <th>Driver Name</th>
+                            <th>User Name</th>
+                            <th>Store Name</th>
+                            <th>Items</th>
+                            <th>Status</th>
+                            <th>Order Type</th>
+                            <th>Delivery Date</th>
+                            <th>Order Date</th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr [ngClass]="{'error1': (item.mins >= 0 && item.status == 1)}" *ngFor="let item of orderList| paginate: config  ; let i = index">
+                            <td>{{ (currentPage - 1) * 25 + i +1 }}</td>
+                            <td>
+                                {{ item.orderNumber }}
+                            </td>
+                            <td>
+                                <ng-container *ngIf="item.address">
+                                    {{ item.address.address.length
+                                    < 20 ? item.address.address : item.address.address.slice(0, 16) + "...." }}</ng-container>
+                            </td>
+                            <td>
+                                {{ item.totalAmount }}
+                            </td>
+                            <td>
+                                <ng-container *ngIf="item.driver && item.driver.length>0; else noDriver">
+                                    {{ item.driver[0].firstName }} {{ item.driver[0].lastName }}
+                                </ng-container>
+                                <ng-template #noDriver>
+                                    N/A
+                                </ng-template>
+                            </td>
+                            <td>
+                                <ng-container *ngIf="item.user">
+                                    {{ item.user.firstName }} {{ item.user.lastName }}
+                                </ng-container>
+                            </td>
+                            <td>
+                                <ng-container *ngIf="item.storeId">
+                                    {{ item.storeId.name }}
+                                </ng-container>
+                            </td>
+                            <td>
+                                <ng-container *ngIf="item.items && item.items.length > 0">{{ item.items.length }}
+                                </ng-container>
+                                <!-- <button class="btn btn-primary" (click)="itemsList(item.items)">
+                  Items
+                </button> -->
+                            </td>
+                            <td *ngIf="item.status == 0">
+                                Pending
+                            </td>
+                            <td *ngIf="item.status == 1">
+                                Accepted
+                            </td>
+                            <td *ngIf="item.status == 2">
+                                {{item.orderType?'Prepared':'Reached'}}
+                            </td>
+                            <td *ngIf="item.status == 3">
+                                Pick Up
+                            </td>
+                            <td *ngIf="item.status == 4">
+                                Delivered
+                            </td>
+                            <td *ngIf="item.status == 5">
+                                Rate
+                            </td>
+                            <td *ngIf="item.status == 6">
+                                Skip
+                            </td>
+                            <td *ngIf="item.status == 11">
+                                Cancel By User
+                            </td>
+                            <td *ngIf="item.status == 12">
+                                Cancel By Store
+                            </td>
+                            <td>
+                                {{item.orderType ? 'Take away' : 'Delivery'}}
+                            </td>
+                            <td>
+                                <ng-container *ngIf="item.deliveryDate!=0; else noDeliveryDate">
+                                    {{ item.deliveryDate | date: "yyyy-MM-dd hh:mm a" }}
+                                </ng-container>
+                                <ng-template #noDeliveryDate>
+                                    -
+                                </ng-template>
+                            </td>
+                            <td>
+                                {{ item.date | date: "yyyy-MM-dd hh:mm a" }}
+                            </td>
+
+                            <td>
+                                <div class="product_action">
+                                    <button class="btn btn-primary mr-1" (click)="viewOrder(item)">
+                    <span class="fas fa-eye"></span>
+                  </button>
+                                    <button *ngIf="item.status == 0" class="btn btn-primary mr-1" (click)="orderAccept(item)">
+                    <span class="fas fa-user-check"></span>
+                  </button>
+                                    <button class="btn btn-primary mr-1" *ngIf="(item.status != 0 && item.status < 4 && item.orderType ) || (item.status < 4 && item.driver && item.driver.length)" (click)="changeStatus(item)">
+                    {{checkStatus(item.status,item.orderType)}}
+                  </button>
+                                    <button class="btn btn-danger mr-1" *ngIf="item.status > 0 && item.status < 3" (click)="orderCancel(item)">
+                    Cancel
+                  </button>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div *ngIf="loader" class="loader"></div>
+                <h4 *ngIf="orderList.length == 0 && !loader" class="text-center">
+                    No records found.
+                </h4>
+            </div>
+            <div *ngIf="orderList && orderList.length !=0 && !loader" class="pagination_ui">
+                <pagination-controls (pageChange)="pageChange($event)" id="page" class="my-pagination">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

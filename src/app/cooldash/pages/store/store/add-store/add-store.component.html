@@ -1,0 +1,266 @@
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <div class="tittle_outer">
+                <div class=" user_title">
+                    <div class="user_title_inner">
+                        <h6 class="m-0 text-black" *ngIf="id">Edit Store</h6>
+                    </div>
+                    <div class="user_add_button">
+                        <button class="btn btn-primary btn-primary_border" (click)="history.back()">
+                  <span class="fas fa-arrow-left"></span> Back
+              </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="restaurantForm">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="title">Name</label>
+                        <div class="input-group">
+                            <input type="text" id="name" class="form-control" formControlName="name" placeholder="" />
+                        </div>
+                        <div *ngIf="submitted && restaurantForm.controls.name.errors" class="invalid-feedback">
+                            <div *ngIf="restaurantForm.controls.name.errors.required">
+                                Name is required
+                            </div>
+                            <div *ngIf="restaurantForm.controls.name.errors.maxlength">
+                                Name can be max 16 characters long.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="title">Email</label>
+                        <div class="input-group">
+                            <input type="text" id="name" class="form-control" formControlName="email" placeholder="" />
+                        </div>
+                        <div *ngIf="submitted && restaurantForm.controls.email.errors" class="invalid-feedback">
+                            <div *ngIf="restaurantForm.controls.email.errors.required">
+                                Email is required
+                            </div>
+                            <div *ngIf="restaurantForm.controls.email.errors.pattern">
+                                Email is not valid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6" *ngIf="!id">
+                        <label for="category">Address</label>
+                        <div class="input-group">
+                            <input class="form-control" type="text" name="name" formControlName="outlet" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddress($event)" placeholder="" />
+                            <div *ngIf="submitted && restaurantForm.controls.outlet.errors" class="invalid-feedback">
+                                <div *ngIf="restaurantForm.controls.outlet.errors.required">
+                                    Address is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="!id">
+                    <div class="form-group col-md-6">
+                        <label for="title">Email</label>
+                        <div class="input-group">
+                            <input type="text" id="name" class="form-control" formControlName="email" placeholder="" />
+                        </div>
+                        <div *ngIf="submitted && restaurantForm.controls.email.errors" class="invalid-feedback">
+                            <div *ngIf="restaurantForm.controls.email.errors.required">
+                                Email is required
+                            </div>
+                            <div *ngIf="restaurantForm.controls.email.errors.pattern">
+                                Email is not valid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="category">Password</label>
+                        <div class="input-group">
+                            <input type="password" id="name" class="form-control" formControlName="password" placeholder="" />
+                        </div>
+                        <div *ngIf="submitted && restaurantForm.controls.password.errors" class="invalid-feedback">
+                            <div *ngIf="restaurantForm.controls.password.errors.required">
+                                Password is required
+                            </div>
+                            <div *ngIf="restaurantForm.controls.password.errors.minlength">
+                                Password must be atleast 8 characters
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+          <div class="form-group col-md-6">
+            <label for="title">Open Time</label>
+            <div class="input-group">
+              <input class="form-control" formControlName="openTime" [owlDateTime]="dt1" placeholder="Time">
+              <div class="input-group-append">
+                <span class="input-group-text trigger" pickerType="timer" [owlDateTimeTrigger]="dt1"><i
+                    class="fa fa-calendar"></i></span>
+              </div>
+              <owl-date-time #dt1 [pickerType]="'timer'"></owl-date-time>
+            </div>
+            <div *ngIf="submitted && restaurantForm.controls.openTime.errors" class="invalid-feedback">
+              <div *ngIf="restaurantForm.controls.openTime.errors.required">
+                Open Time is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="title">Close Time</label>
+            <div class="input-group">
+              <input class="form-control" formControlName="closeTime" [owlDateTime]="dt2" placeholder="Time">
+              <div class="input-group-append">
+                <span class="input-group-text trigger" pickerType="timer" [owlDateTimeTrigger]="dt2"><i
+                    class="fa fa-calendar"></i></span>
+              </div>
+              <owl-date-time #dt2 [pickerType]="'timer'"></owl-date-time>
+            </div>
+            <div *ngIf="submitted && restaurantForm.controls.closeTime.errors" class="invalid-feedback">
+              <div *ngIf="restaurantForm.controls.closeTime.errors.required">
+                Close Time is required
+              </div>
+            </div>
+          </div>
+        </div> -->
+                <!-- <div class="row">
+          <div class="form-group col-md-12">
+            <label for="body">Description</label>
+            <div class="input-group">
+              <textarea type="text" row="3" id="body" class="form-control" formControlName="description"
+                placeholder=""></textarea>
+              <div *ngIf="submitted && restaurantForm.controls.description.errors" class="invalid-feedback">
+                <div *ngIf="restaurantForm.controls.description.errors.required">
+                  Description is required
+                </div>
+                <div *ngIf="restaurantForm.controls.description.errors.maxlength">
+                  Description can be max 250 characters long.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="price">Discount</label>
+                        <div class="input-group">
+                            <input type="number" id="discount" class="form-control" formControlName="discount" placeholder="" />
+                            <div *ngIf="submitted && restaurantForm.controls.discount.errors" class="invalid-feedback">
+                                <div *ngIf="restaurantForm.controls.discount.errors.required">
+                                    Discount is required
+                                </div>
+                                <div *ngIf="restaurantForm.controls.discount.errors.pattern">
+                                    Discount is not valid
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="price">Discount Upto</label>
+                        <div class="input-group">
+                            <input type="number" id="discountUpto" class="form-control" formControlName="discountUpto" placeholder="" />
+                            <div *ngIf="submitted && restaurantForm.controls.discountUpto.errors" class="invalid-feedback">
+                                <div *ngIf="restaurantForm.controls.discountUpto.errors.required">
+                                    Discount Upto is required
+                                </div>
+                                <div *ngIf="restaurantForm.controls.discountUpto.errors.pattern">
+                                    Discount Upto is not valid
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="price">Is Recommended</label>
+                        <div class="input-group">
+                            <ui-switch labelOn="ON" switchColor="#4e73df" id="status" name="status" formControlName="isRecommended" labelOff="OFF">
+                            </ui-switch>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="price">Status</label>
+                        <div class="input-group">
+                            <ui-switch labelOn="ON" switchColor="#4e73df" id="status" name="status" formControlName="status" labelOff="OFF">
+                            </ui-switch>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- <div class="form-group col-md-6">
+            <label for="price">Minimum Order Amount</label>
+            <div class="input-group">
+              <input type="number" id="minOrderAmount" class="form-control" formControlName="minOrderAmount"
+                placeholder="" />
+              <div *ngIf="
+                  submitted && restaurantForm.controls.minOrderAmount.errors
+                " class="invalid-feedback">
+                <div *ngIf="restaurantForm.controls.minOrderAmount.errors.required">
+                  Minimum Order Amount is required
+                </div>
+                <div *ngIf="restaurantForm.controls.minOrderAmount.errors.pattern">
+                  Minimum Order Amount is not valid
+                </div>
+              </div>
+            </div>
+          </div> -->
+                    <div class="form-group col-md-6">
+                        <label for="price">Average Order Price</label>
+                        <div class="input-group">
+                            <input type="number" id="avgOrderPrice" class="form-control" formControlName="avgOrderPrice" placeholder="" />
+                            <div *ngIf="
+                  submitted && restaurantForm.controls.avgOrderPrice.errors
+                " class="invalid-feedback">
+                                <div *ngIf="restaurantForm.controls.avgOrderPrice.errors.required">
+                                    Average Order Price is required
+                                </div>
+                                <div *ngIf="restaurantForm.controls.avgOrderPrice.errors.pattern">
+                                    Average Order Price is not valid
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6 add_resurant">
+                        <label for="category">Store Category</label>
+                        <div class="input-group multiselect-dropdown" *ngIf="categoryList && categoryList.length > 0">
+                            <ng-multiselect-dropdown [placeholder]="'Select Category'" [data]="categoryList" formControlName="categories" [settings]="dropDownSetting">
+                            </ng-multiselect-dropdown>
+                            <div *ngIf="
+              submitted && restaurantForm.controls.categories.errors
+            " class="invalid-feedback">
+                                <div *ngIf="restaurantForm.controls.categories.errors.required">
+                                    Store Category is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-md-6">
+                        <div class="usr_profile_img">
+                            <div class="usr_profile_imgbx">
+                                <label>Image </label>
+                                <div class="user_img">
+                                    <figure *ngIf="categoryImage">
+                                        <img style="height: 150px;width: 150px" [src]="categoryImage" />
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="user_profile_edit">
+                                <input type="file" accept="image/*" (change)="profilePic($event)" />
+                            </div>
+                            <div *ngIf="submitted && !categoryImage" class="invalid-feedback">
+                                Image is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-actions add_edit">
+                    <button type="submit" class="btn btn-sm btn-success" *ngIf="id" (click)="update()">
+            Update
+          </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

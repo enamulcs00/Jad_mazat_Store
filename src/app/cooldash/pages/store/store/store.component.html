@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <div class="row">
+        <div class="col-md-6">
+          <h6 class="m-0 font-weight-bold text-primary">Manage Store</h6>
+        </div>
+        <div class="col-md-6 text-right">
+          <button class="btn btn-primary" (click)="addRestaurant()">
+            <span class="fas fa-plus"></span> Add Store
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Discount</th>
+              <th>Is Featured</th>
+              <th>Is Recommended</th>
+              <th>Created Date</th>
+              <th>
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of storeList; let i = index">
+              <td>{{ i + serialNumber + 1 }}</td>
+              <td>
+                <img src="{{ imageUrl }}{{ item.image }}" width="70px" height="70px" />
+              </td>
+              <td>{{ item.name }}</td>
+              <td>
+                {{
+                  item.description == null
+                    ? ""
+                    : item.description.length < 18
+                    ? item.description
+                    : item.description.slice(0, 16) + "...."
+                }}
+              </td>
+              <td>
+                {{ item.discount }}
+              </td>
+              <td>
+                <ui-switch labelOn="ON" switchColor="#4e73df" id="featured" name="isFavourite"
+                  [(ngModel)]="item.isFavourite" (ngModelChange)="updateFavRes(item)" labelOff="OFF"></ui-switch>
+              </td>
+              <td>
+                <ui-switch labelOn="ON" switchColor="#4e73df" id="recommend" name="isRecommended"
+                  [(ngModel)]="item.isRecommended" (ngModelChange)="updateRecoRes(item)" labelOff="OFF"></ui-switch>
+              </td>
+              <td>
+                {{ item.createdAt | date: "yyyy-MM-dd" }}
+              </td>
+
+              <td>
+                <div class="product_action">
+                  <button class="btn btn-primary mr-1" (click)="onViewItem(item)">
+                    <span class="fas fa-fw fa-eye"></span>
+                  </button>
+                  <button class="btn btn-primary mr-1" (click)="onEditSelect(item)">
+                    <span class="fas fa-fw fa-edit"></span>
+                  </button>
+                  <button class="btn btn-primary mr-1" (click)="getOutlet(item)">
+                    Outlet
+                  </button>
+                  <button class="btn btn-primary mr-1" (click)="getFoodType(item)">
+                    Type
+                  </button>
+                  <button class="btn btn-primary mr-1" (click)="getFoodItem(item)">
+                    Item
+                  </button>
+                  <button class="btn btn-danger mr-1" (click)="deleteStore(item)">
+                    <span class="fas fa-fw fa-trash"></span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="loader" class="loader"></div>
+        <h4 *ngIf="storeList.length == 0 && !loader" class="text-center">
+          No records found.
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>

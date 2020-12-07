@@ -1,0 +1,72 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center mt-1" href="javascript:void(0)"
+    routerLink="/dashboard">
+    <div class="sidebar-brand-icon">
+      <figure><img src="assets/img/mazatLogo.png"></figure>
+    </div>
+    <div class="sidebar-brand-text mx-3">
+      <figure><img src="assets/img/mazatLogo.png">
+        <!-- <span class="logo-bold">Dash</span> -->
+      </figure>
+    </div>
+  </a>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0" />
+  <!--  <div class="sidebar-heading">-->
+  <!--    Addons-->
+  <!--  </div>-->
+
+  <!-- <ng-container *ngFor="let item of menuItems; let i = index">
+    <li
+      *ngIf="
+        role == 'SuperAdmin' ||
+        (role == 'Merchant' &&
+          (item.path == '/b2b/products' || item.path == '/b2b/order')) ||
+        (role == 'SubAdmin' &&
+          access.read == true &&
+          item.path !== '/b2b/sub-admin')
+      "
+      routerLink="{{ item.path }}"
+      routerLinkActive="active"
+      class="nav-item"
+    >
+      <a class="nav-link" href="javascript:void(0)">
+        <img [src]="item.icon" />
+        <span>{{ item.title }}</span></a
+      >
+    </li>
+  </ng-container> -->
+  <!-- Nav Item - Charts -->
+  <ng-container *ngFor="let item of menuItems">
+    <li *ngIf="item.class == 'sub'" routerLink="{{ item.path }}" routerLinkActive="active" class="nav-item">
+      <a class="nav-link" href="javascript:void(0)">
+        <img [src]="item.icon" />
+        <span>{{ item.title }}</span></a>
+    </li>
+    <li class="nav-item" *ngIf="item.class == 'subchild'">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" [attr.data-target]="'#collapse' + item.id"
+        aria-expanded="true" [attr.aria-controls]="'collapse' + item.id">
+        <img [src]="item.icon" />
+        <span>{{ item.title }}</span>
+      </a>
+      <div [id]="'collapse' + item.id" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a *ngFor="let child of item.children" class="collapse-item" routerLink="{{ child.path }}"
+            routerLinkActive="active">{{ child.title }}</a>
+        </div>
+      </div>
+    </li>
+  </ng-container>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block" />
+
+  <!-- Sidebar Toggler (Sidebar) -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+  </div>
+</ul>
+<!-- End of Sidebar -->
