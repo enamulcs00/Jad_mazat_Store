@@ -5,7 +5,7 @@ import { ToastrManager } from "ng6-toastr-notifications";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CommonService {
   orderStatus: string = "pending";
@@ -17,7 +17,7 @@ export class CommonService {
     selectAllText: "Select All",
     unSelectAllText: "UnSelect All",
     itemsShowLimit: 3,
-    allowSearchFilter: true
+    allowSearchFilter: true,
   };
   singleDropSetting = {
     enableCheckAll: false,
@@ -27,10 +27,15 @@ export class CommonService {
     selectAllText: "Select All",
     unSelectAllText: "UnSelect All",
     itemsShowLimit: 3,
-    allowSearchFilter: true
+    allowSearchFilter: true,
   };
   baseUrl = "http://13.233.12.201:9079/v1/admin";
   imageUrl = "http://13.233.12.201:9079";
+
+  // // Local Url For Testing
+
+  // baseUrl = "http://192.168.1.158:9079/v1/admin";
+  // imageUrl = "http://192.168.1.158:9079";
   // https://appgrowthcompany.com:3000/
   //http://192.168.1.98:3000
   constructor(
@@ -38,7 +43,7 @@ export class CommonService {
     private toaster: ToastrManager,
     // private api: ApiService,
     private http: HttpClient
-  ) { }
+  ) {}
   showSpinner() {
     this.spinner.show();
   }
@@ -47,7 +52,7 @@ export class CommonService {
   }
   successToast(message) {
     this.toaster.successToastr(message, "", {
-      maxShown: 1
+      maxShown: 1,
     });
   }
   errorToast(message) {

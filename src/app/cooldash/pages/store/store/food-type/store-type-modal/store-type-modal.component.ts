@@ -4,7 +4,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl
+  FormControl,
 } from "@angular/forms";
 import { CommonService } from "../../../../../services/common/common.service";
 import { ApiService } from "../../../../../services/api/api.service";
@@ -12,12 +12,11 @@ import { ToastrManager } from "ng6-toastr-notifications";
 
 declare var $: any;
 @Component({
-  selector: 'app-store-type-modal',
-  templateUrl: './store-type-modal.component.html',
-  styleUrls: ['./store-type-modal.component.scss']
+  selector: "app-store-type-modal",
+  templateUrl: "./store-type-modal.component.html",
+  styleUrls: ["./store-type-modal.component.scss"],
 })
 export class StoreTypeModalComponent implements OnInit {
-
   categoryForm: FormGroup;
   categoryImage: any;
   File;
@@ -31,11 +30,12 @@ export class StoreTypeModalComponent implements OnInit {
     public comm: CommonService,
     public api: ApiService,
     public toastr: ToastrManager
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.categoryForm = this.formBuilder.group({
-      name: new FormControl("", Validators.compose([Validators.required]))
+      name: new FormControl("", Validators.compose([Validators.required])),
+      name_ar: new FormControl("", Validators.compose([Validators.required])),
     });
     if (this.item) {
       this.setValues();
@@ -45,7 +45,8 @@ export class StoreTypeModalComponent implements OnInit {
   setValues = () => {
     if (this.item) {
       this.categoryForm.patchValue({
-        name: this.item.name
+        name: this.item.name,
+        name_ar: this.item.name_ar,
       });
     }
   };
@@ -55,9 +56,10 @@ export class StoreTypeModalComponent implements OnInit {
     if (this.categoryForm.valid && this.submitted) {
       var data = {
         name: this.categoryForm.controls["name"].value,
-        storeId: this.restaurantId
+        name_ar: this.categoryForm.controls["name_ar"].value,
+        storeId: this.restaurantId,
       };
-      this.api.addStoreFoodType(data).subscribe(res => {
+      this.api.addStoreFoodType(data).subscribe((res) => {
         if (res["response"]["success"]) {
           this.toastr.successToastr(res["response"]["message"]);
           this.dialog.close("yes");
@@ -82,10 +84,11 @@ export class StoreTypeModalComponent implements OnInit {
     if (this.categoryForm.valid && this.submitted) {
       var data = {
         name: this.categoryForm.controls["name"].value,
+        name_ar: this.categoryForm.controls["name_ar"].value,
         updateId: this.item._id,
-        storeId: this.item.storeId
+        storeId: this.item.storeId,
       };
-      this.api.editStoreFoodType(data).subscribe(res => {
+      this.api.editStoreFoodType(data).subscribe((res) => {
         if (res["response"]["success"]) {
           this.toastr.successToastr(res["response"]["message"]);
           this.dialog.close("yes");
