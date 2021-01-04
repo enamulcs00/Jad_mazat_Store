@@ -1,76 +1,114 @@
 <div class="container-fluid">
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <div class="tittle_outer">
-                <div class=" user_title">
-                    <div class="user_title_inner">
-                        <h6 class="m-0 text-black">Food Category</h6>
-                    </div>
-                    <div class="user_add_button">
-                        <button class="btn btn-primary mr-4" (click)="addFoodType()">
-                <span class="fas fa-plus"></span> Add Category
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <div class="tittle_outer">
+        <div class="user_title">
+          <div class="user_title_inner">
+            <h6 class="m-0 text-black">Food Category</h6>
+          </div>
+          <div class="user_add_button">
+            <button class="btn btn-primary mr-4" (click)="addFoodType()">
+              <span class="fas fa-plus"></span> Add Category
             </button>
-                        <button class="btn btn-primary btn-primary_border" (click)="history.back()">
-                <span class="fas fa-arrow-left"></span> Back
+            <button
+              class="btn btn-primary btn-primary_border"
+              (click)="history.back()"
+            >
+              <span class="fas fa-arrow-left"></span> Back
             </button>
-                    </div>
-                </div>
-            </div>
-            <div class="filters_outer">
-                <div class="user_filter">
-                    <input type="text" class="form-control" name="searchText" [(ngModel)]="searchText" placeholder="Search Food Category">
-                </div>
-                <div class="user_serch_btn">
-                    <button type="submit" class="btn btn-primary pl-3 pr-3" (click)="searchType()">Search</button>
-                    <button type="reset" class="btn btn-primary pl-2 pr-2 ml-2" (click)="reset()">Reset</button>
-                </div>
-            </div>
+          </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Created Date</th>
-                            <th>Status</th>
-                            <th>
-                                Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of foodType; let i = index">
-                            <td>{{ i + serialNumber + 1 }}</td>
-                            <td>{{ item.name }}</td>
-                            <td>
-                                {{ item.createdAt | date: "yyyy-MM-dd" }}
-                            </td>
-                            <td>
-                                <ui-switch labelOn="ON" switchColor="#4e73df" id="Active" name="status" [(ngModel)]="item.status" (ngModelChange)="updateActiveStatus(item)" labelOff="OFF">
-                                </ui-switch>
-                            </td>
-                            <td>
-                                <div class="product_action">
-                                    <button class="btn btn-success mr-1" (click)="onEditSelect(item)">
-                                    <span class="fas fa-fw fa-edit"></span>
-                                </button>
-                                    <button class="btn btn-danger" (click)="deleteCategory(item)">
-                                    <span class="fas fa-fw fa-trash"></span>
-                                </button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div *ngIf="loader" class="loader"></div>
-                <h4 *ngIf="foodType && foodType.length == 0 && !loader" class="text-center">
-                    No records found.
-                </h4>
-            </div>
-            <!-- <pagination
+      </div>
+      <div class="filters_outer">
+        <div class="user_filter">
+          <input
+            type="text"
+            class="form-control"
+            name="searchText"
+            [(ngModel)]="searchText"
+            placeholder="Search Food Category"
+          />
+        </div>
+        <div class="user_serch_btn">
+          <button
+            type="submit"
+            class="btn btn-primary pl-3 pr-3"
+            (click)="searchType()"
+          >
+            Search
+          </button>
+          <button
+            type="reset"
+            class="btn btn-primary pl-2 pr-2 ml-2"
+            (click)="reset()"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Created Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of foodType; let i = index">
+              <ng-container *ngIf="item.status">
+                <td>{{ i + serialNumber + 1 }}</td>
+                <td>{{ item.name }}</td>
+                <td>
+                  {{ item.createdAt | date: "yyyy-MM-dd" }}
+                </td>
+                <td>
+                  <ui-switch
+                    labelOn="ON"
+                    switchColor="#4e73df"
+                    id="Active"
+                    name="status"
+                    [(ngModel)]="item.status"
+                    (ngModelChange)="updateActiveStatus(item)"
+                    labelOff="OFF"
+                  >
+                  </ui-switch>
+                </td>
+                <td>
+                  <div class="product_action">
+                    <button
+                      class="btn btn-success mr-1"
+                      (click)="onEditSelect(item)"
+                    >
+                      <span class="fas fa-fw fa-edit"></span>
+                    </button>
+                    <button
+                      class="btn btn-danger"
+                      (click)="deleteCategory(item)"
+                    >
+                      <span class="fas fa-fw fa-trash"></span>
+                    </button>
+                  </div>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="loader" class="loader"></div>
+        <h4
+          *ngIf="foodType && foodType.length == 0 && !loader"
+          class="text-center"
+        >
+          No records found.
+        </h4>
+      </div>
+      <!-- <pagination
           *ngIf="categoryList.length != 0 && !loader"
           [totalItems]="totalItems"
           [boundaryLinks]="true"
@@ -78,6 +116,6 @@
           [(ngModel)]="currentPage"
           (pageChanged)="pageChange($event)"
         ></pagination> -->
-        </div>
     </div>
+  </div>
 </div>

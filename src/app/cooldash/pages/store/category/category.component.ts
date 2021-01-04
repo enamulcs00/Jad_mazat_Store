@@ -12,7 +12,7 @@ declare var swal: any;
 @Component({
   selector: "app-category",
   templateUrl: "./category.component.html",
-  styleUrls: ["./category.component.scss"]
+  styleUrls: ["./category.component.scss"],
 })
 export class CategoryComponent implements OnInit {
   totalItems: number;
@@ -28,7 +28,7 @@ export class CategoryComponent implements OnInit {
     private api: ApiService,
     private comm: CommonService,
     private dialogService: PopupService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.imageUrl = this.comm.imageUrl;
@@ -36,7 +36,7 @@ export class CategoryComponent implements OnInit {
   }
 
   getCategories() {
-    this.api.getAllStoreCategories().subscribe(response => {
+    this.api.getAllStoreCategories().subscribe((response) => {
       console.log(response["response"]);
       if (response["response"]["success"]) {
         this.categoryList = response["response"]["message"];
@@ -51,7 +51,7 @@ export class CategoryComponent implements OnInit {
   }
 
   addCategory() {
-    this.dialogService.addStoreCategory().subscribe(res => {
+    this.dialogService.addStoreCategory().subscribe((res) => {
       if (res == "yes") {
         this.getCategories();
       }
@@ -59,7 +59,7 @@ export class CategoryComponent implements OnInit {
   }
 
   onEditSelect(item) {
-    this.dialogService.editStoreCategory(item).subscribe(res => {
+    this.dialogService.editStoreCategory(item).subscribe((res) => {
       if (res == "yes") {
         this.getCategories();
       }
@@ -75,13 +75,13 @@ export class CategoryComponent implements OnInit {
       confirmButtonColor: "#3085D6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes",
-      allowOutsideClick: false
-    }).then(result => {
+      allowOutsideClick: false,
+    }).then((result) => {
       if (result.value) {
         var data = {
           name: item.name,
           updateId: item._id,
-          status: 2
+          status: 2,
         };
         let formData = new FormData();
         formData.append("data", JSON.stringify(data));
@@ -91,7 +91,7 @@ export class CategoryComponent implements OnInit {
             Swal.fire({
               title: "Deleted!",
               text: res["response"]["message"],
-              icon: "success"
+              icon: "success",
             });
             this.getCategories();
           }
@@ -105,7 +105,7 @@ export class CategoryComponent implements OnInit {
     var data = {
       name: item.name,
       updateId: item._id,
-      status: item.status ? 1 : 0
+      status: item.status ? 1 : 0,
     };
     let formData = new FormData();
     formData.append("data", JSON.stringify(data));

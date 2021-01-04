@@ -3,7 +3,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl
+  FormControl,
 } from "@angular/forms";
 import { CommonService } from "../../../../services/common/common.service";
 import { ApiService } from "../../../../services/api/api.service";
@@ -15,12 +15,11 @@ import Swal from "sweetalert2";
 declare var google: any;
 
 @Component({
-  selector: 'app-food-type',
-  templateUrl: './food-type.component.html',
-  styleUrls: ['./food-type.component.scss']
+  selector: "app-food-type",
+  templateUrl: "./food-type.component.html",
+  styleUrls: ["./food-type.component.scss"],
 })
 export class FoodTypeComponent implements OnInit {
-
   history = window.history;
   foodType: any;
   id: any;
@@ -33,7 +32,7 @@ export class FoodTypeComponent implements OnInit {
   tokenVal;
   role: any;
   access: any;
-  searchText: string = '';
+  searchText: string = "";
   allData: any[];
   constructor(
     private formBuilder: FormBuilder,
@@ -42,21 +41,22 @@ export class FoodTypeComponent implements OnInit {
     public toastr: ToastrManager,
     private router: Router,
     private route: ActivatedRoute,
-    private mapsAPILoader: MapsAPILoader, private dialogService: PopupService
-  ) { }
+    private mapsAPILoader: MapsAPILoader,
+    private dialogService: PopupService
+  ) {}
 
   ngOnInit() {
     if (localStorage.getItem("storeLogin")) {
       var data = JSON.parse(localStorage.getItem("storeLogin"));
       if (data.id) {
-        this.id = data.id
+        this.id = data.id;
         this.getFoodType(this.id);
       }
     }
   }
 
   getFoodType(id) {
-    this.api.getStoreTypeById(id).subscribe(res => {
+    this.api.getStoreTypeById(id).subscribe((res) => {
       console.log(res);
       if (res["response"]["success"]) {
         this.foodType = res["data"];
@@ -64,6 +64,8 @@ export class FoodTypeComponent implements OnInit {
         for (var data of this.foodType) {
           data.status = data["status"] == 1 ? true : false;
         }
+
+        console.log(this.foodType);
         this.loader = false;
       }
     });
@@ -74,7 +76,7 @@ export class FoodTypeComponent implements OnInit {
       name: item.name,
       updateId: item._id,
       status: item.status ? 1 : 0,
-      restaurantId: this.id
+      restaurantId: this.id,
     };
     this.api.editStoreFoodType(data).subscribe((res: any) => {
       if (res["response"]["success"]) {
@@ -93,21 +95,22 @@ export class FoodTypeComponent implements OnInit {
       confirmButtonColor: "#3085D6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes",
-      allowOutsideClick: false
-    }).then(result => {
+      allowOutsideClick: false,
+    }).then((result) => {
       if (result.value) {
         var data = {
           name: item.name,
+          name_ar: item.name_ar,
           updateId: item._id,
           storeId: this.id,
-          status: 2
+          status: 2,
         };
         this.api.editStoreFoodType(data).subscribe((res: any) => {
           if (res["response"]["success"]) {
             Swal.fire({
               title: "Deleted!",
               text: res["response"]["message"],
-              icon: "success"
+              icon: "success",
             });
             this.getFoodType(this.id);
           }
@@ -118,7 +121,7 @@ export class FoodTypeComponent implements OnInit {
   }
 
   addFoodType(item) {
-    this.dialogService.addStoreType(this.id).subscribe(res => {
+    this.dialogService.addStoreType(this.id).subscribe((res) => {
       if (res == "yes") {
         this.getFoodType(this.id);
       }
@@ -126,7 +129,7 @@ export class FoodTypeComponent implements OnInit {
   }
 
   onEditSelect(item) {
-    this.dialogService.editStoreype(item).subscribe(res => {
+    this.dialogService.editStoreype(item).subscribe((res) => {
       if (res == "yes") {
         this.getFoodType(this.id);
       }
@@ -135,11 +138,13 @@ export class FoodTypeComponent implements OnInit {
 
   searchType() {
     this.foodType = this.allData.filter(
-      row => row.name.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1)
+      (row) =>
+        row.name.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1
+    );
   }
 
   reset() {
-    this.searchText = ''
+    this.searchText = "";
     this.getFoodType(this.id);
   }
 }
