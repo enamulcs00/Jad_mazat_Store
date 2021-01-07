@@ -9,17 +9,18 @@
                     </div>
                     <div class="user_add_button">
                         <button class="btn btn-primary mr-4" (click)="addCategory()">
-              <span class="fas fa-plus"></span> Add Item
-          </button>
+                            <span class="fas fa-plus"></span> Add Item
+                        </button>
                         <button class="btn btn-primary btn-primary_border" (click)="history.back()">
-              <span class="fas fa-arrow-left"></span> Back
-          </button>
+                            <span class="fas fa-arrow-left"></span> Back
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="filters_outer">
                 <div class="user_filter">
-                    <input type="text" class="form-control" name="searchText" [(ngModel)]="searchText" placeholder="Search Food Category">
+                    <input type="text" class="form-control" name="searchText" [(ngModel)]="searchText"
+                        placeholder="Search Food Category">
                 </div>
                 <div class="user_serch_btn">
                     <button type="submit" class="btn btn-primary pl-3 pr-3" (click)="searchItem()">Search</button>
@@ -37,7 +38,7 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
-                            <!-- <th>Discount</th> -->
+                            <th>Quantity</th>
                             <th>Packing Time</th>
                             <th>Created Date</th>
                             <th>Status</th>
@@ -56,26 +57,27 @@
                             <td>
                                 {{ item.description == null ? "" : item.description.length
                                 < 18 ? item.description : item.description.slice(0, 16) + "...." }} </td>
-                                    <td>{{item.price}}</td>
-                                    <!-- <td>{{item.discount}}</td> -->
-                                    <td>{{item.packingTime}}</td>
-                                    <td>
-                                        {{ item.createdAt | date: "yyyy-MM-dd" }}
-                                    </td>
-                                    <td>
-                                        <ui-switch labelOn="ON" switchColor="#4e73df" id="Active" name="status" [(ngModel)]="item.status" (ngModelChange)="updateActiveStatus(item)" labelOff="OFF">
-                                        </ui-switch>
-                                    </td>
-                                    <td>
-                                        <div class="product_action">
-                                            <button class="btn btn-success mr-1" (click)="onEditSelect(item)">
-                                    <span class="fas fa-fw fa-edit"></span>
-                                </button>
-                                            <button class="btn btn-danger" (click)="deleteCategory(item)">
-                                    <span class="fas fa-fw fa-trash"></span>
-                                </button>
-                                        </div>
-                                    </td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.packingTime}}</td>
+                            <td>
+                                {{ item.createdAt | date: "yyyy-MM-dd" }}
+                            </td>
+                            <td>
+                                <ui-switch labelOn="ON" switchColor="#4e73df" id="Active" name="status"
+                                    [(ngModel)]="item.status" (ngModelChange)="updateActiveStatus(item)" labelOff="OFF">
+                                </ui-switch>
+                            </td>
+                            <td>
+                                <div class="product_action">
+                                    <button class="btn btn-success mr-1" (click)="onEditSelect(item)">
+                                        <span class="fas fa-fw fa-edit"></span>
+                                    </button>
+                                    <button class="btn btn-danger" (click)="deleteCategory(item)">
+                                        <span class="fas fa-fw fa-trash"></span>
+                                    </button>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

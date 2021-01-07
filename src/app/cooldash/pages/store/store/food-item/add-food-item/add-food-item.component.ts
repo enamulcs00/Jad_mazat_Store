@@ -43,7 +43,7 @@ export class AddFoodItemComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private mapsAPILoader: MapsAPILoader
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -57,15 +57,15 @@ export class AddFoodItemComponent implements OnInit {
     });
     this.restaurantForm = this.formBuilder.group({
       name: new FormControl("", Validators.compose([Validators.required])),
-      name_ar: new FormControl("", Validators.compose([Validators.required])),
+      // name_ar: new FormControl("", Validators.compose([Validators.required])),
       description: new FormControl(
         "",
         Validators.compose([Validators.required, Validators.maxLength(250)])
       ),
-      description_ar: new FormControl(
-        "",
-        Validators.compose([Validators.required, Validators.maxLength(250)])
-      ),
+      // description_ar: new FormControl(
+      //   "",
+      //   Validators.compose([Validators.required, Validators.maxLength(250)])
+      // ),
       storeId: new FormControl("", Validators.compose([Validators.required])),
       storeItemTypeId: new FormControl(
         "",
@@ -77,6 +77,10 @@ export class AddFoodItemComponent implements OnInit {
         Validators.compose([Validators.required])
       ),
       packingTime: new FormControl(
+        "",
+        Validators.compose([Validators.required])
+      ),
+      quantity: new FormControl(
         "",
         Validators.compose([Validators.required])
       ),
