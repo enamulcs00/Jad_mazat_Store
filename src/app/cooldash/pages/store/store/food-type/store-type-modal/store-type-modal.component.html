@@ -4,21 +4,13 @@
   <form [formGroup]="categoryForm">
     <div class="usr_profile_inrmain">
       <div class="row">
-        <div class="col-6">
+        <div class="col-12">
           <div class="usr_profile_biodata">
             <label>Type</label>
             <div class="input-group">
-              <input
-                class="form-control"
-                type="text"
-                name="name"
-                formControlName="name"
-              />
+              <input class="form-control" type="text" name="name" formControlName="name" />
             </div>
-            <div
-              *ngIf="submitted && categoryForm.controls.name.errors"
-              class="invalid-feedback"
-            >
+            <div *ngIf="submitted && categoryForm.controls.name.errors" class="invalid-feedback">
               <div *ngIf="categoryForm.controls.name.errors.required">
                 Type is required
               </div>
@@ -26,27 +18,19 @@
           </div>
         </div>
 
-        <div class="col-6">
+        <!-- <div class="col-6">
           <div class="usr_profile_biodata">
             <label>نوع</label>
             <div class="input-group">
-              <input
-                class="form-control"
-                type="text"
-                name="name"
-                formControlName="name_ar"
-              />
+              <input class="form-control" type="text" name="name" formControlName="name_ar" />
             </div>
-            <div
-              *ngIf="submitted && categoryForm.controls.name.errors"
-              class="invalid-feedback"
-            >
+            <div *ngIf="submitted && categoryForm.controls.name.errors" class="invalid-feedback">
               <div *ngIf="categoryForm.controls.name.errors.required">
                 Type is required
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </form>

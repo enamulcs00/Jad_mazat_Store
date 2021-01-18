@@ -30,12 +30,12 @@ export class StoreTypeModalComponent implements OnInit {
     public comm: CommonService,
     public api: ApiService,
     public toastr: ToastrManager
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.categoryForm = this.formBuilder.group({
       name: new FormControl("", Validators.compose([Validators.required])),
-      name_ar: new FormControl("", Validators.compose([Validators.required])),
+      name_ar: new FormControl("notUseAble"),
     });
     if (this.item) {
       this.setValues();

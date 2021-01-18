@@ -152,11 +152,12 @@ $text_succes_color:#155724;
 $text_succes_backcolor:#d4edda;
 $text_danger_color:#721c24;
 $text_danger_backcolor:#f8d7da;
-$text_sidebar_textcolor:#3e9900;
+$text_sidebar_textcolor:#FF4500;
 $text_sidebar_textbackcolor:#3e99001f;
 $text_sidebar_inactivetextcolor:#969ba0;
-$btn-primary:#3e9900;
+$btn-primary:#FF4500;
 $btn-primarycolor:#fff;
+
 .product_action button.btn.btn-primary {
     background-color: #2f4cdd !important;
     border-color: #4e73df !important;
@@ -178,7 +179,7 @@ $btn-primarycolor:#fff;
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active {
-    color: #3e9900 !important;
+    color: #FF4500 !important;
 }
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
@@ -197,8 +198,8 @@ button.btn.btn_item {
 
 .btn-primary_border {
     background: transparent;
-    color: #3e9900;
-    box-shadow: inset 0 0 0px 2px #3e9900;
+    color: #FF4500;
+    box-shadow: inset 0 0 0px 2px #FF4500;
 }
 
 .table-responsive h4 {
@@ -211,15 +212,15 @@ button.btn.btn_item {
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #3e9900;
-    border-color: #3e9900;
+    background-color: #FF4500;
+    border-color: #FF4500;
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
     color: #fff;
-    background-color: #3e9900;
-    border-color: #3e9900;
+    background-color: #FF4500;
+    border-color: #FF4500;
     box-shadow: 0 0 0 0.2rem rgb(62, 153, 0, 0.5);
 }
 
@@ -227,15 +228,15 @@ button.btn.btn_item {
 .btn-primary:not(:disabled):not(.disabled).active,
 .show>.btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #3e9900;
-    border-color: #3e9900;
+    background-color: #FF4500;
+    border-color: #FF4500;
     box-shadow: 0 0 0 0.2rem rgb(62, 153, 0, 0.5);
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-    border-color: #3e9900;
+    border-color: #FF4500;
     box-shadow: 0 0 0 0.2rem rgb(62, 153, 0, 0.5);
 }
 
@@ -505,7 +506,7 @@ li.nav-item a:before {
     position: absolute;
     left: 0;
     top: 0;
-    background: #3e9900;
+    background: #FF4500;
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;
     transition: all 0.5s;
@@ -527,6 +528,7 @@ li.nav-item a span {
         overflow: visible;
         width: 6.5rem !important;
     }
+
     .sidebar .nav-item .nav-link {
         text-align: left;
         padding: 1rem;
@@ -600,7 +602,7 @@ li.nav-item a span {
 }
 
 .col-card i {
-    color: #3e9900;
+    color: #FF4500;
 }
 
 .card .h5 {
@@ -695,12 +697,15 @@ a#messagesDropdown {
         transform: scale(0.3);
         opacity: 0;
     }
+
     50% {
         opacity: 0.1;
     }
+
     70% {
         opacity: 0.09;
     }
+
     100% {
         -webkit-transform: scale(3);
         transform: scale(3);
@@ -714,12 +719,15 @@ a#messagesDropdown {
         transform: scale(0.3);
         opacity: 0;
     }
+
     50% {
         opacity: 0.1;
     }
+
     70% {
         opacity: 0.09;
     }
+
     100% {
         -webkit-transform: scale(3);
         transform: scale(3);
@@ -827,6 +835,7 @@ table tr {
     0% {
         -webkit-transform: rotate(0deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
     }
@@ -836,6 +845,7 @@ table tr {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
