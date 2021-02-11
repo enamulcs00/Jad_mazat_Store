@@ -29,11 +29,11 @@ export class CommonService {
     itemsShowLimit: 3,
     allowSearchFilter: true,
   };
-  baseUrl = "http://13.233.12.201:9029/v1/admin";
-  imageUrl = "http://13.233.12.201:9029";
+  baseUrl = "http://15.207.74.128:9029/v1/admin";
+  imageUrl = "http://15.207.74.128:9029";
 
   // // Local Url For Testing
-  // 'http://13.233.12.201:9029
+  // 'http://15.207.74.128:9029
   // baseUrl = "http://192.168.1.158:9079/v1/admin";
   // imageUrl = "http://192.168.1.158:9079";
   // https://appgrowthcompany.com:3000/

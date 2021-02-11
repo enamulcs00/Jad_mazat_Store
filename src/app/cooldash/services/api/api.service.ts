@@ -207,4 +207,9 @@ export class ApiService {
   changePassword(body) {
     return this.http.post(this.comm.baseUrl + "/panel/changepass", body);
   }
+
+  addInventory(data)
+  {
+    return this.http.post(this.comm.baseUrl + "/store/manageInventoryOne",data);
+  }
 }

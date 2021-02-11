@@ -48804,7 +48804,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\">\n  <!-- DataTales Example -->\n  <div class=\"card shadow mb-4\">\n    <div class=\"card-header py-3\">\n      <div class=\"tittle_outer\">\n        <div class=\"user_title\">\n          <div class=\"user_title_inner\">\n            <h6 class=\"m-0 text-black\">Food Category</h6>\n          </div>\n          <div class=\"user_add_button\">\n            <button class=\"btn btn-primary mr-4\" (click)=\"addFoodType()\">\n              <span class=\"fas fa-plus\"></span> Add Category\n            </button>\n            <button\n              class=\"btn btn-primary btn-primary_border\"\n              (click)=\"history.back()\"\n            >\n              <span class=\"fas fa-arrow-left\"></span> Back\n            </button>\n          </div>\n        </div>\n      </div>\n      <div class=\"filters_outer\">\n        <div class=\"user_filter\">\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            name=\"searchText\"\n            [(ngModel)]=\"searchText\"\n            placeholder=\"Search Food Category\"\n          />\n        </div>\n        <div class=\"user_serch_btn\">\n          <button\n            type=\"submit\"\n            class=\"btn btn-primary pl-3 pr-3\"\n            (click)=\"searchType()\"\n          >\n            Search\n          </button>\n          <button\n            type=\"reset\"\n            class=\"btn btn-primary pl-2 pr-2 ml-2\"\n            (click)=\"reset()\"\n          >\n            Reset\n          </button>\n        </div>\n      </div>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"table-responsive\">\n        <table class=\"table table-bordered\" width=\"100%\" cellspacing=\"0\">\n          <thead>\n            <tr>\n              <th>#</th>\n              <th>Name</th>\n              <th>Created Date</th>\n              <th>Status</th>\n              <th>Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let item of foodType; let i = index\">\n              <ng-container *ngIf=\"item.status\">\n                <td>{{ i + serialNumber + 1 }}</td>\n                <td>{{ item.name }}</td>\n                <td>\n                  {{ item.createdAt | date: \"yyyy-MM-dd\" }}\n                </td>\n                <td>\n                  <ui-switch\n                    labelOn=\"ON\"\n                    switchColor=\"#4e73df\"\n                    id=\"Active\"\n                    name=\"status\"\n                    [(ngModel)]=\"item.status\"\n                    (ngModelChange)=\"updateActiveStatus(item)\"\n                    labelOff=\"OFF\"\n                  >\n                  </ui-switch>\n                </td>\n                <td>\n                  <div class=\"product_action\">\n                    <button\n                      class=\"btn btn-success mr-1\"\n                      (click)=\"onEditSelect(item)\"\n                    >\n                      <span class=\"fas fa-fw fa-edit\"></span>\n                    </button>\n                    <button\n                      class=\"btn btn-danger\"\n                      (click)=\"deleteCategory(item)\"\n                    >\n                      <span class=\"fas fa-fw fa-trash\"></span>\n                    </button>\n                  </div>\n                </td>\n              </ng-container>\n            </tr>\n          </tbody>\n        </table>\n        <div *ngIf=\"loader\" class=\"loader\"></div>\n        <h4\n          *ngIf=\"foodType && foodType.length == 0 && !loader\"\n          class=\"text-center\"\n        >\n          No records found.\n        </h4>\n      </div>\n      <!-- <pagination\n          *ngIf=\"categoryList.length != 0 && !loader\"\n          [totalItems]=\"totalItems\"\n          [boundaryLinks]=\"true\"\n          [maxSize]=\"5\"\n          [(ngModel)]=\"currentPage\"\n          (pageChanged)=\"pageChange($event)\"\n        ></pagination> -->\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\">\n  <!-- DataTales Example -->\n  <div class=\"card shadow mb-4\">\n      <div class=\"card-header py-3\">\n          <div class=\"tittle_outer\">\n              <div class=\" user_title\">\n                  <div class=\"user_title_inner\">\n                      <h6 class=\"m-0 text-black\">Food Item</h6>\n                  </div>\n                  <div class=\"user_add_button\">\n                      <button class=\"btn btn-primary mr-4\" (click)=\"addCategory()\">\n                          <span class=\"fas fa-plus\"></span> Add Item\n                      </button>\n                      <button class=\"btn btn-primary btn-primary_border\" (click)=\"history.back()\">\n                          <span class=\"fas fa-arrow-left\"></span> Back\n                      </button>\n                  </div>\n              </div>\n          </div>\n          <div class=\"filters_outer\">\n              <div class=\"user_filter\">\n                  <input type=\"text\" class=\"form-control\" name=\"searchText\" [(ngModel)]=\"searchText\"\n                      placeholder=\"Search Food Category\">\n              </div>\n              <div class=\"user_serch_btn\">\n                  <button type=\"submit\" class=\"btn btn-primary pl-3 pr-3\" (click)=\"searchItem()\">Search</button>\n                  <button type=\"reset\" class=\"btn btn-primary pl-2 pr-2 ml-2\" (click)=\"reset()\">Reset</button>\n              </div>\n          </div>\n      </div>\n      <div class=\"card-body\">\n          <div class=\"table-responsive\">\n              <table class=\"table table-bordered\" width=\"100%\" cellspacing=\"0\">\n                  <thead>\n                      <tr>\n                          <th>#</th>\n                          <th>Image</th>\n                          <th>Name</th>\n                          <th>Description</th>\n                          <th>Price</th>\n                          <th>Quantity</th>\n                          <th>Packing Time</th>\n                          <th>Created Date</th>\n                          <th>Status</th>\n                          <th>\n                              Action\n                          </th>\n                      </tr>\n                  </thead>\n                  <tbody>\n                      <tr *ngFor=\"let item of foodItem; let i = index\">\n                          <td>{{ i + serialNumber + 1 }}</td>\n                          <td>\n                              <img src=\"{{ imageUrl }}{{ item.image }}\" width=\"70px\" height=\"70px\" />\n                          </td>\n                          <td>{{ item.name }}</td>\n                          <td>\n                              {{ item.description == null ? \"\" : item.description.length\n                              < 18 ? item.description : item.description.slice(0, 16) + \"....\" }} </td>\n                          <!-- <td>{{item.price}}</td>-->\n                          <td>\n                            <input type=\"number\" style=\"width: 22%;\" [(ngModel)]=\"item.price\" (input)=\"updateData(item.price,item.storeId,'price',item.id)\">\n                          </td>\n                          <td><input type=\"number\" style=\"width: 22%;\" [(ngModel)]=\"item.quantity\" (input)=\"updateData(item.quantity,item.storeId,'quantity',item.id)\"></td>\n                          \n                          <td>{{item.packingTime}}</td>\n                          <td>\n                              {{ item.createdAt | date: \"yyyy-MM-dd\" }}\n                          </td>\n                          <td>\n                              <ui-switch labelOn=\"ON\" switchColor=\"#4e73df\" id=\"Active\" name=\"status\"\n                                  [(ngModel)]=\"item.status\" (ngModelChange)=\"updateActiveStatus(item)\" labelOff=\"OFF\">\n                              </ui-switch>\n                          </td>\n                          <td>\n                              <div class=\"product_action\">\n                                  <button class=\"btn btn-success mr-1\" (click)=\"onEditSelect(item)\">\n                                      <span class=\"fas fa-fw fa-edit\"></span>\n                                  </button>\n                                  <button class=\"btn btn-danger\" (click)=\"deleteCategory(item)\">\n                                      <span class=\"fas fa-fw fa-trash\"></span>\n                                  </button>\n                              </div>\n                          </td>\n                      </tr>\n                  </tbody>\n              </table>\n              <div *ngIf=\"loader\" class=\"loader\"></div>\n              <h4 *ngIf=\"foodItem && foodItem.length == 0 && !loader\" class=\"text-center\">\n                  No records found.\n              </h4>\n          </div>\n          <!-- <pagination\n        *ngIf=\"categoryList.length != 0 && !loader\"\n        [totalItems]=\"totalItems\"\n        [boundaryLinks]=\"true\"\n        [maxSize]=\"5\"\n        [(ngModel)]=\"currentPage\"\n        (pageChanged)=\"pageChange($event)\"\n      ></pagination> -->\n      </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -52146,7 +52146,7 @@ ItemsModalComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".error1 {\n  background: #ff00009c;\n  color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3Bhd2FuL0Rlc2t0b3AvV29yayBTcGFjZS92ZW5nby92ZW5nb19zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL29yZGVyL29yZGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb29sZGFzaC9wYWdlcy9zdG9yZS9vcmRlci9vcmRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFBO0VBQ0EsV0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvb3JkZXIvb3JkZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXJyb3Ixe1xyXG4gICAgYmFja2dyb3VuZDogI2ZmMDAwMDljO1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn0iLCIuZXJyb3IxIHtcbiAgYmFja2dyb3VuZDogI2ZmMDAwMDljO1xuICBjb2xvcjogI2ZmZjtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".error1 {\n  background: #ff00009c;\n  color: #fff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FwcHR1bml4L0Rvd25sb2Fkcy9WZWdvbi1zdG9yZS9tYXphdF9zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL29yZGVyL29yZGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb29sZGFzaC9wYWdlcy9zdG9yZS9vcmRlci9vcmRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFBO0VBQ0EsV0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvb3JkZXIvb3JkZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXJyb3Ixe1xyXG4gICAgYmFja2dyb3VuZDogI2ZmMDAwMDljO1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn0iLCIuZXJyb3IxIHtcbiAgYmFja2dyb3VuZDogI2ZmMDAwMDljO1xuICBjb2xvcjogI2ZmZjtcbn0iXX0= */");
 
 /***/ }),
 
@@ -52782,7 +52782,7 @@ StoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".invalid-feedback {\n  display: block;\n  width: 100%;\n  margin-top: 0.14rem;\n  margin-left: 0.6rem;\n  font-size: 95%;\n  color: #f55353;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3Bhd2FuL0Rlc2t0b3AvV29yayBTcGFjZS92ZW5nby92ZW5nb19zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2FkZC1zdG9yZS9hZGQtc3RvcmUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2FkZC1zdG9yZS9hZGQtc3RvcmUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvYWRkLXN0b3JlL2FkZC1zdG9yZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbnZhbGlkLWZlZWRiYWNrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDAuNnJlbTtcclxuICAgIGZvbnQtc2l6ZTogOTUlO1xyXG4gICAgY29sb3I6ICNmNTUzNTM7XHJcbiAgfVxyXG4gIiwiLmludmFsaWQtZmVlZGJhY2sge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi10b3A6IDAuMTRyZW07XG4gIG1hcmdpbi1sZWZ0OiAwLjZyZW07XG4gIGZvbnQtc2l6ZTogOTUlO1xuICBjb2xvcjogI2Y1NTM1Mztcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".invalid-feedback {\n  display: block;\n  width: 100%;\n  margin-top: 0.14rem;\n  margin-left: 0.6rem;\n  font-size: 95%;\n  color: #f55353;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FwcHR1bml4L0Rvd25sb2Fkcy9WZWdvbi1zdG9yZS9tYXphdF9zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2FkZC1zdG9yZS9hZGQtc3RvcmUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2FkZC1zdG9yZS9hZGQtc3RvcmUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvYWRkLXN0b3JlL2FkZC1zdG9yZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbnZhbGlkLWZlZWRiYWNrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDAuNnJlbTtcclxuICAgIGZvbnQtc2l6ZTogOTUlO1xyXG4gICAgY29sb3I6ICNmNTUzNTM7XHJcbiAgfVxyXG4gIiwiLmludmFsaWQtZmVlZGJhY2sge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi10b3A6IDAuMTRyZW07XG4gIG1hcmdpbi1sZWZ0OiAwLjZyZW07XG4gIGZvbnQtc2l6ZTogOTUlO1xuICBjb2xvcjogI2Y1NTM1Mztcbn0iXX0= */");
 
 /***/ }),
 
@@ -52986,7 +52986,7 @@ AddStoreComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".invalid-feedback {\n  display: block;\n  width: 100%;\n  margin-top: 0.14rem;\n  margin-left: 0.6rem;\n  font-size: 95%;\n  color: #f55353;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL3Bhd2FuL0Rlc2t0b3AvV29yayBTcGFjZS92ZW5nby92ZW5nb19zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2Zvb2QtaXRlbS9hZGQtZm9vZC1pdGVtL2FkZC1mb29kLWl0ZW0uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2Zvb2QtaXRlbS9hZGQtZm9vZC1pdGVtL2FkZC1mb29kLWl0ZW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvZm9vZC1pdGVtL2FkZC1mb29kLWl0ZW0vYWRkLWZvb2QtaXRlbS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbnZhbGlkLWZlZWRiYWNrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDAuNnJlbTtcclxuICAgIGZvbnQtc2l6ZTogOTUlO1xyXG4gICAgY29sb3I6ICNmNTUzNTM7XHJcbiAgfVxyXG4gIiwiLmludmFsaWQtZmVlZGJhY2sge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi10b3A6IDAuMTRyZW07XG4gIG1hcmdpbi1sZWZ0OiAwLjZyZW07XG4gIGZvbnQtc2l6ZTogOTUlO1xuICBjb2xvcjogI2Y1NTM1Mztcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".invalid-feedback {\n  display: block;\n  width: 100%;\n  margin-top: 0.14rem;\n  margin-left: 0.6rem;\n  font-size: 95%;\n  color: #f55353;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FwcHR1bml4L0Rvd25sb2Fkcy9WZWdvbi1zdG9yZS9tYXphdF9zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2Zvb2QtaXRlbS9hZGQtZm9vZC1pdGVtL2FkZC1mb29kLWl0ZW0uY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2Zvb2QtaXRlbS9hZGQtZm9vZC1pdGVtL2FkZC1mb29kLWl0ZW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvZm9vZC1pdGVtL2FkZC1mb29kLWl0ZW0vYWRkLWZvb2QtaXRlbS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbnZhbGlkLWZlZWRiYWNrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDAuNnJlbTtcclxuICAgIGZvbnQtc2l6ZTogOTUlO1xyXG4gICAgY29sb3I6ICNmNTUzNTM7XHJcbiAgfVxyXG4gIiwiLmludmFsaWQtZmVlZGJhY2sge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG4gIG1hcmdpbi10b3A6IDAuMTRyZW07XG4gIG1hcmdpbi1sZWZ0OiAwLjZyZW07XG4gIGZvbnQtc2l6ZTogOTUlO1xuICBjb2xvcjogI2Y1NTM1Mztcbn0iXX0= */");
 
 /***/ }),
 
@@ -53404,78 +53404,73 @@ let FoodTypeComponent = class FoodTypeComponent {
         this.route = route;
         this.mapsAPILoader = mapsAPILoader;
         this.dialogService = dialogService;
-        this.history = window.history;
         this.currentPage = 1;
         this.serialNumber = 0;
         this.loader = true;
         this.categoryList = [];
-        this.searchText = "";
+        this.searchText = '';
+        this.history = window.history;
     }
     ngOnInit() {
+        this.getItem();
+    }
+    getItem() {
+        this.imageUrl = this.comm.imageUrl;
         if (localStorage.getItem("storeLogin")) {
             var data = JSON.parse(localStorage.getItem("storeLogin"));
             if (data.id) {
                 this.id = data.id;
-                this.getFoodType(this.id);
+                this.getFoodItem(this.id);
             }
         }
     }
-    getFoodType(id) {
-        this.api.getStoreTypeById(id).subscribe((res) => {
+    getFoodItem(id) {
+        this.api.getStoreItemeById(id).subscribe(res => {
             console.log(res);
             if (res["response"]["success"]) {
-                this.foodType = res["data"];
-                this.allData = this.foodType;
-                for (var data of this.foodType) {
+                this.foodItem = res["data"];
+                this.allData = this.foodItem;
+                for (var data of this.foodItem) {
                     data.status = data["status"] == 1 ? true : false;
                 }
-                console.log(this.foodType);
                 this.loader = false;
             }
         });
     }
-    updateActiveStatus(item) {
-        var data = {
-            name: item.name,
-            updateId: item._id,
-            status: item.status ? 1 : 0,
-            restaurantId: this.id,
-        };
-        this.api.editStoreFoodType(data).subscribe((res) => {
-            if (res["response"]["success"]) {
-                this.getFoodType(this.id);
-            }
-            if (!res["response"]["success"])
-                return;
-        });
+    addCategory() {
+        this.router.navigate(['store/add-food-item', this.id]);
+    }
+    onEditSelect(item) {
+        this.router.navigate(['store/edit-food-item', this.id, item._id]);
     }
     deleteCategory(item) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this Food Type!",
+            text: "Once deleted, you will not be able to recover this Food Item!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085D6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes",
-            allowOutsideClick: false,
-        }).then((result) => {
+            allowOutsideClick: false
+        }).then(result => {
             if (result.value) {
                 var data = {
                     name: item.name,
-                    name_ar: item.name_ar,
                     updateId: item._id,
-                    storeId: this.id,
-                    status: 2,
+                    status: 2
                 };
-                this.api.editStoreFoodType(data).subscribe((res) => {
+                let formData = new FormData();
+                formData.append("data", JSON.stringify(data));
+                formData.append("image", item.image);
+                this.api.editStoreFoodItem(formData).subscribe((res) => {
                     if (res["response"]["success"]) {
                         sweetalert2__WEBPACK_IMPORTED_MODULE_9___default.a.fire({
                             title: "Deleted!",
                             text: res["response"]["message"],
-                            icon: "success",
+                            icon: "success"
                         });
-                        this.getFoodType(this.id);
+                        this.getFoodItem(this.id);
                     }
                     if (!res["response"]["success"])
                         return;
@@ -53483,26 +53478,50 @@ let FoodTypeComponent = class FoodTypeComponent {
             }
         });
     }
-    addFoodType(item) {
-        this.dialogService.addStoreType(this.id).subscribe((res) => {
-            if (res == "yes") {
-                this.getFoodType(this.id);
+    updateActiveStatus(item) {
+        var data = {
+            name: item.name,
+            updateId: item._id,
+            status: item.status ? 1 : 0
+        };
+        let formData = new FormData();
+        formData.append("data", JSON.stringify(data));
+        this.api.editStoreFoodItem(formData).subscribe((res) => {
+            if (res["response"]["success"]) {
+                this.getFoodItem(this.id);
             }
+            if (!res["response"]["success"])
+                return;
         });
     }
-    onEditSelect(item) {
-        this.dialogService.editStoreype(item).subscribe((res) => {
-            if (res == "yes") {
-                this.getFoodType(this.id);
-            }
-        });
-    }
-    searchType() {
-        this.foodType = this.allData.filter((row) => row.name.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1);
+    searchItem() {
+        this.foodItem = this.allData.filter(row => row.name.toLowerCase().indexOf(this.searchText.toLowerCase()) > -1);
     }
     reset() {
-        this.searchText = "";
-        this.getFoodType(this.id);
+        this.searchText = '';
+        this.getFoodItem(this.id);
+    }
+    updateData(value, id, key, itemid) {
+        if (key == 'price') {
+            const data = {
+                "storeId": id,
+                "itemId": itemid,
+                "price": value
+            };
+            this.api.addInventory(data).subscribe((res) => {
+                this.getItem();
+            });
+        }
+        if (key == 'quantity') {
+            const data = {
+                "storeId": id,
+                "itemId": itemid,
+                "quantity": value
+            };
+            this.api.addInventory(data).subscribe((res) => {
+                this.getItem();
+            });
+        }
     }
 };
 FoodTypeComponent.ctorParameters = () => [

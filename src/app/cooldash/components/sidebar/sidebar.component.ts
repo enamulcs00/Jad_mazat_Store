@@ -72,6 +72,12 @@ export class SidebarComponent implements OnInit {
         class: "sub"
       },
       {
+      //  path: "/store/food-type",
+       // title: "Store Inventory",
+       // icon: "assets/icon/inventory.png",
+       // class: "sub"
+      },
+      {
         path: "/store/order",
         title: "Order",
         icon: "assets/icon/order.png",
