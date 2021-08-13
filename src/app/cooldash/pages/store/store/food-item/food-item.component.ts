@@ -57,10 +57,12 @@ export class FoodItemComponent implements OnInit {
   }
 
   getFoodItem(id) {
+    
     this.api.getStoreItemeById(id).subscribe(res => {
       console.log(res);
       if (res["response"]["success"]) {
         this.foodItem = res["data"];
+       
         this.allData = this.foodItem;
         for (var data of this.foodItem) {
           data.status = data["status"] == 1 ? true : false;

@@ -18,7 +18,6 @@ export class ApiService {
   ) {
     this.getCountryCode();
   }
-
   getCountryCode() {
     return this.http
       .get<Response>("assets/json/countryCode.json")

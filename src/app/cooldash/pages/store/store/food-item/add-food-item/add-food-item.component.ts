@@ -25,6 +25,7 @@ export class AddFoodItemComponent implements OnInit {
   selectedCat: Array<any> = [];
   categoryImage: any;
   File;
+  storeItemTypeId:any = ''
   dropDownSetting: any;
   singleDropDownSetting: any;
   id;
@@ -62,7 +63,7 @@ export class AddFoodItemComponent implements OnInit {
         "",
         Validators.compose([Validators.required, Validators.maxLength(250)])
       ),
-      // description_ar: new FormControl(
+      
       //   "",
       //   Validators.compose([Validators.required, Validators.maxLength(250)])
       // ),
@@ -108,7 +109,12 @@ export class AddFoodItemComponent implements OnInit {
       if (res["response"]["success"]) {
         this.restaurantDetail = res["data"];
         console.log(this.restaurantDetail);
-        this.setValues(this.restaurantDetail);
+        setTimeout(() => {
+          this.setValues(this.restaurantDetail);
+          this.restaurantForm.controls['storeItemTypeId'].setValue(this.restaurantDetail.storeItemTypeId.id)
+       
+        }, 500);
+       
       }
     });
   }
@@ -134,17 +140,16 @@ export class AddFoodItemComponent implements OnInit {
   }
 
   setValues = (data) => {
+
     if (data) {
       this.restaurantForm.patchValue({
         name: data.name,
-        name_ar: data.name_ar,
         description: data.description,
-        description_ar: data.description_ar,
-        storeItemTypeId: data.storeItemTypeId,
-        // discount: data.discount,
+        storeItemTypeId: data.storeItemTypeId.id,
+        quantity:data.quantity,
         price: data.price,
         packingTime: data.packingTime,
-        storeCategoryId: data.storeCategoryId,
+        storeCategoryId: data.storeCategoryId.id,
         storeId: data.storeId,
       });
       if (data.image) {

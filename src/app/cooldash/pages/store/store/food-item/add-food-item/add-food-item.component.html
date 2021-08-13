@@ -129,10 +129,10 @@
           <div class="form-group col-md-6">
             <label for="types">Store Type</label>
             <div class="input-group">
-              <select class="form-control" formControlName="storeItemTypeId" *ngIf="foodType">
+              <select class="form-control" formControlName="storeItemTypeId" *ngIf="foodType" [(ngModel)]="storeItemTypeId">
                 <option value="" selected disabled hidden>Choose here</option>
-                <option *ngFor="let type of foodType" [value]="type._id">
-                  {{ type.name }}
+                <option *ngFor="let type of foodType" [value]="type?._id">
+                  {{ type?.name }}
                 </option>
               </select>
               <div *ngIf="
