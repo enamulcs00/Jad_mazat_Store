@@ -20,8 +20,9 @@ import { AgmCoreModule } from "@agm/core";
 import { AgmDirectionModule } from "agm-direction";
 import { StoreCategoryModalComponent } from './cooldash/pages/store/category/storeCategoryModal/storeCategoryModal.component';
 import { StoreOutletmodalComponent } from './cooldash/pages/store/store/storeOutletModal/storeOutletModal.component';
-import { StoreTypeModalComponent } from './cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component';
+// import { StoreTypeModalComponent } from './cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component';
 import { ForgotPasswordModalComponent } from './forgot-password-modal/forgot-password-modal.component';
+// import {MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,11 @@ import { ForgotPasswordModalComponent } from './forgot-password-modal/forgot-pas
     AcceptModalComponent,
     StoreCategoryModalComponent,
     StoreOutletmodalComponent,
-    StoreTypeModalComponent,
+    // StoreTypeModalComponent,
     ForgotPasswordModalComponent
   ],
   imports: [
+    // MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -57,7 +59,7 @@ import { ForgotPasswordModalComponent } from './forgot-password-modal/forgot-pas
     AcceptModalComponent,
     StoreCategoryModalComponent,
     StoreOutletmodalComponent,
-    StoreTypeModalComponent,
+    // StoreTypeModalComponent,
     ForgotPasswordModalComponent
   ]
 })

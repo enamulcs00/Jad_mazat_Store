@@ -75,11 +75,11 @@ export class FoodTypeComponent implements OnInit {
   }
 
   addCategory() {
-    this.router.navigate(['store/add-food-item', this.id]);
+    this.router.navigate(['store/add-food-type', this.id]);
   }
 
   onEditSelect(item) {
-    this.router.navigate(['store/edit-food-item', this.id, item._id]);
+    this.router.navigate(['store/edit-food-type', this.id, item._id]);
   }
 
   deleteCategory(item) {

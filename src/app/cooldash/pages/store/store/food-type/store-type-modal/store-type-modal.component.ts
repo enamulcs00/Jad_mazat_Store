@@ -9,6 +9,7 @@ import {
 import { CommonService } from "../../../../../services/common/common.service";
 import { ApiService } from "../../../../../services/api/api.service";
 import { ToastrManager } from "ng6-toastr-notifications";
+import { Router, ActivatedRoute } from "@angular/router";
 
 declare var $: any;
 @Component({
@@ -22,17 +23,24 @@ export class StoreTypeModalComponent implements OnInit {
   File;
   submitted: boolean = false;
   item: any;
-  restaurantId;
+  restaurantId:any;
+  typeID: any;
 
   constructor(
     private dialog: MatDialogRef<StoreTypeModalComponent>,
     private formBuilder: FormBuilder,
     public comm: CommonService,
     public api: ApiService,
-    public toastr: ToastrManager
+    public toastr: ToastrManager,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params:any) => {
+      this.restaurantId = params.id;
+      this.typeID = params.itemId;
+    });
     this.categoryForm = this.formBuilder.group({
       name: new FormControl("", Validators.compose([Validators.required])),
       name_ar: new FormControl("notUseAble"),
@@ -59,10 +67,14 @@ export class StoreTypeModalComponent implements OnInit {
         name_ar: this.categoryForm.controls["name_ar"].value,
         storeId: this.restaurantId,
       };
+      console.log("Data",data);
       this.api.addStoreFoodType(data).subscribe((res) => {
         if (res["response"]["success"]) {
+          history.back();
+          return;
           this.toastr.successToastr(res["response"]["message"]);
           this.dialog.close("yes");
+          
         } else {
           this.toastr.errorToastr(res["response"]["message"]);
           this.dialog.close("no");
@@ -85,11 +97,13 @@ export class StoreTypeModalComponent implements OnInit {
       var data = {
         name: this.categoryForm.controls["name"].value,
         name_ar: this.categoryForm.controls["name_ar"].value,
-        updateId: this.item._id,
-        storeId: this.item.storeId,
+        updateId: this.typeID,
+        storeId: this.restaurantId,
       };
       this.api.editStoreFoodType(data).subscribe((res) => {
         if (res["response"]["success"]) {
+          console.log("Edit");
+          return;
           this.toastr.successToastr(res["response"]["message"]);
           this.dialog.close("yes");
         } else {

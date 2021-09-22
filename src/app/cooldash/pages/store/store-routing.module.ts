@@ -10,6 +10,7 @@ import { FoodTypeComponent } from './store/food-type/food-type.component';
 import { FoodItemComponent } from './store/food-item/food-item.component';
 import { AddFoodItemComponent } from './store/food-item/add-food-item/add-food-item.component';
 import { ViewOrderComponent } from './order/view-order/view-order.component';
+import { StoreTypeModalComponent } from "./store/food-type/store-type-modal/store-type-modal.component";
 
 const routes: Routes = [
   {
@@ -91,6 +92,20 @@ const routes: Routes = [
       {
         path: "add-food-item/:id",
         component: AddFoodItemComponent,
+        data: {
+          title: ""
+        }
+      },
+      {
+        path: "edit-food-type/:id/:itemId",
+        component: StoreTypeModalComponent,
+        data: {
+          title: ""
+        }
+      },
+      {
+        path: "add-food-type/:id",
+        component: StoreTypeModalComponent,
         data: {
           title: ""
         }

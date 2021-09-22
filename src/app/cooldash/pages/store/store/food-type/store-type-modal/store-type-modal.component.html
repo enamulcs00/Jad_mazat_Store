@@ -1,5 +1,5 @@
-<h2 mat-dialog-title *ngIf="item">Edit Store Type</h2>
-<h2 mat-dialog-title *ngIf="restaurantId">Add Store Type</h2>
+<h2 mat-dialog-title *ngIf="restaurantId && typeID">Edit Store Type</h2>
+<h2 mat-dialog-title *ngIf="restaurantId && !typeID">Add Store Type</h2>
 <mat-dialog-content>
   <form [formGroup]="categoryForm">
     <div class="usr_profile_inrmain">
@@ -18,7 +18,7 @@
           </div>
         </div>
 
-        <!-- <div class="col-6">
+        <div class="col-6">
           <div class="usr_profile_biodata">
             <label>نوع</label>
             <div class="input-group">
@@ -30,16 +30,16 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button class="btn btn-primary mr-3" *ngIf="!item" (click)="onSubmit()">
+  <button class="btn btn-primary mr-3" *ngIf="restaurantId && !typeID" (click)="onSubmit()">
     Add Type
   </button>
-  <button class="btn btn-primary mr-3" *ngIf="item" (click)="onUpdate()">
+  <button class="btn btn-primary mr-3" *ngIf="restaurantId && typeID" (click)="onUpdate()">
     Edit Type
   </button>
   <button class="btn btn-danger" (click)="close()">Close</button>
