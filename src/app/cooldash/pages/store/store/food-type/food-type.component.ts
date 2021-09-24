@@ -61,7 +61,7 @@ export class FoodTypeComponent implements OnInit {
   }
 
   getFoodItem(id) {
-    this.api.getStoreItemeById(id).subscribe(res => {
+    this.api.getStoreTypeById(id).subscribe(res => {
       console.log(res);
       if (res["response"]["success"]) {
         this.foodItem = res["data"];
@@ -97,12 +97,11 @@ export class FoodTypeComponent implements OnInit {
         var data = {
           name: item.name,
           updateId: item._id,
-          status: 2
+          status: 2,
+          storeId: this.id,
         };
-        let formData = new FormData();
-        formData.append("data", JSON.stringify(data));
-        formData.append("image", item.image);
-        this.api.editStoreFoodItem(formData).subscribe((res: any) => {
+        
+        this.api.editStoreFoodType(data).subscribe((res: any) => {
           if (res["response"]["success"]) {
             Swal.fire({
               title: "Deleted!",
@@ -121,11 +120,10 @@ export class FoodTypeComponent implements OnInit {
     var data = {
       name: item.name,
       updateId: item._id,
-      status: item.status ? 1 : 0
+      status: item.status ? 1 : 0,
+      storeId: this.id,
     };
-    let formData = new FormData();
-    formData.append("data", JSON.stringify(data));
-    this.api.editStoreFoodItem(formData).subscribe((res: any) => {
+    this.api.editStoreFoodType(data).subscribe((res: any) => {
       if (res["response"]["success"]) {
         this.getFoodItem(this.id);
       }

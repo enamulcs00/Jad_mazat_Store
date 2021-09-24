@@ -51,7 +51,10 @@ export class AddFoodItemComponent implements OnInit {
       this.id = params["id"];
       this.itemId = params["itemId"];
       this.getAllFoodType();
-      this.getFoodItemById(this.itemId);
+      if (this.itemId){
+        this.getFoodItemById(this.itemId);
+      }
+      
     });
     this.mapsAPILoader.load().then(() => {
       this.geoCoder = new google.maps.Geocoder();

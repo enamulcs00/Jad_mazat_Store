@@ -45,18 +45,33 @@ export class StoreTypeModalComponent implements OnInit {
       name: new FormControl("", Validators.compose([Validators.required])),
       name_ar: new FormControl("notUseAble"),
     });
-    if (this.item) {
+    if (this.typeID) {
       this.setValues();
     }
   }
 
+  back(){
+    history.back();
+  }
+
   setValues = () => {
-    if (this.item) {
-      this.categoryForm.patchValue({
-        name: this.item.name,
-        name_ar: this.item.name_ar,
-      });
-    }
+    // if (this.item) {
+    //   this.categoryForm.patchValue({
+    //     name: this.item.name,
+    //   });
+    // }
+    
+    this.api.getStoreTypeById(this.restaurantId).subscribe((res:any) => {
+      if (res["response"]["success"]) {
+        this.item = res.data.find(element => (element._id==this.typeID));
+        if (this.item) {
+          this.categoryForm.patchValue({
+            name: this.item.name,
+          });
+        }
+      }
+    });
+  
   };
 
   onSubmit() {
@@ -64,20 +79,17 @@ export class StoreTypeModalComponent implements OnInit {
     if (this.categoryForm.valid && this.submitted) {
       var data = {
         name: this.categoryForm.controls["name"].value,
-        name_ar: this.categoryForm.controls["name_ar"].value,
+        name_ar: "notInUse",
         storeId: this.restaurantId,
       };
-      console.log("Data",data);
+      // console.log("Data",data);
       this.api.addStoreFoodType(data).subscribe((res) => {
         if (res["response"]["success"]) {
-          history.back();
-          return;
           this.toastr.successToastr(res["response"]["message"]);
-          this.dialog.close("yes");
-          
+          history.back();
         } else {
           this.toastr.errorToastr(res["response"]["message"]);
-          this.dialog.close("no");
+          
         }
       });
     }
@@ -96,19 +108,16 @@ export class StoreTypeModalComponent implements OnInit {
     if (this.categoryForm.valid && this.submitted) {
       var data = {
         name: this.categoryForm.controls["name"].value,
-        name_ar: this.categoryForm.controls["name_ar"].value,
+        name_ar: "notInUse",
         updateId: this.typeID,
         storeId: this.restaurantId,
       };
       this.api.editStoreFoodType(data).subscribe((res) => {
         if (res["response"]["success"]) {
-          console.log("Edit");
-          return;
           this.toastr.successToastr(res["response"]["message"]);
-          this.dialog.close("yes");
+          history.back();
         } else {
           this.toastr.errorToastr(res["response"]["message"]);
-          this.dialog.close("no");
         }
       });
     }

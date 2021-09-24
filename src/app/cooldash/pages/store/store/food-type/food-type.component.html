@@ -9,7 +9,7 @@
                   </div>
                   <div class="user_add_button">
                       <button class="btn btn-primary mr-4" (click)="addCategory()">
-                          <span class="fas fa-plus"></span> Add Item
+                          <span class="fas fa-plus"></span> Add type
                       </button>
                       <button class="btn btn-primary btn-primary_border" (click)="history.back()">
                           <span class="fas fa-arrow-left"></span> Back
@@ -34,12 +34,8 @@
                   <thead>
                       <tr>
                           <th>#</th>
-                          <th>Image</th>
                           <th>Name</th>
-                          <th>Description</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                          <th>Packing Time</th>
+                          <!-- <th>Arabic Name</th> -->
                           <th>Created Date</th>
                           <th>Status</th>
                           <th>
@@ -50,20 +46,11 @@
                   <tbody>
                       <tr *ngFor="let item of foodItem; let i = index">
                           <td>{{ i + serialNumber + 1 }}</td>
-                          <td>
-                              <img src="{{ imageUrl }}{{ item.image }}" width="70px" height="70px" />
-                          </td>
                           <td>{{ item.name }}</td>
-                          <td>
-                              {{ item.description == null ? "" : item.description.length
-                              < 18 ? item.description : item.description.slice(0, 16) + "...." }} </td>
-                          <!-- <td>{{item.price}}</td>      -->
-                          <td>
-                            <input type="number" style="width: 22%;" [(ngModel)]="item.price" (input)="updateData(item.price,item.storeId,'price',item.id)">
-                          </td>
-                          <td><input type="number" style="width: 22%;" [(ngModel)]="item.quantity" (input)="updateData(item.quantity,item.storeId,'quantity',item.id)"></td>
-                          
-                          <td>{{item.packingTime}}</td>
+                            <!-- <td>
+                                {{item.name_ar}}
+                            </td> -->
+                         
                           <td>
                               {{ item.createdAt | date: "yyyy-MM-dd" }}
                           </td>

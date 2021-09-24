@@ -90,26 +90,6 @@
   },
 
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.html":
-  /*!*********************************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.html ***!
-    \*********************************************************************************************************************************************/
-
-  /*! exports provided: default */
-
-  /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppCooldashPagesStoreStoreFoodTypeStoreTypeModalStoreTypeModalComponentHtml(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony default export */
-
-
-    __webpack_exports__["default"] = "<h2 mat-dialog-title *ngIf=\"item\">Edit Store Type</h2>\n<h2 mat-dialog-title *ngIf=\"restaurantId\">Add Store Type</h2>\n<mat-dialog-content>\n  <form [formGroup]=\"categoryForm\">\n    <div class=\"usr_profile_inrmain\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <div class=\"usr_profile_biodata\">\n            <label>Type</label>\n            <div class=\"input-group\">\n              <input class=\"form-control\" type=\"text\" name=\"name\" formControlName=\"name\" />\n            </div>\n            <div *ngIf=\"submitted && categoryForm.controls.name.errors\" class=\"invalid-feedback\">\n              <div *ngIf=\"categoryForm.controls.name.errors.required\">\n                Type is required\n              </div>\n            </div>\n          </div>\n        </div>\n\n        <!-- <div class=\"col-6\">\n          <div class=\"usr_profile_biodata\">\n            <label>نوع</label>\n            <div class=\"input-group\">\n              <input class=\"form-control\" type=\"text\" name=\"name\" formControlName=\"name_ar\" />\n            </div>\n            <div *ngIf=\"submitted && categoryForm.controls.name.errors\" class=\"invalid-feedback\">\n              <div *ngIf=\"categoryForm.controls.name.errors.required\">\n                Type is required\n              </div>\n            </div>\n          </div>\n        </div> -->\n      </div>\n    </div>\n  </form>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <button class=\"btn btn-primary mr-3\" *ngIf=\"!item\" (click)=\"onSubmit()\">\n    Add Type\n  </button>\n  <button class=\"btn btn-primary mr-3\" *ngIf=\"item\" (click)=\"onUpdate()\">\n    Edit Type\n  </button>\n  <button class=\"btn btn-danger\" (click)=\"close()\">Close</button>\n</mat-dialog-actions>";
-    /***/
-  },
-
-  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/cooldash/pages/store/store/storeOutletModal/storeOutletModal.component.html":
   /*!***********************************************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/cooldash/pages/store/store/storeOutletModal/storeOutletModal.component.html ***!
@@ -145,7 +125,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2 mat-dialog-title>Forgot Password</h2>\n<mat-dialog-content>\n    <form >\n    <div class=\"form-group\">\n        <input\n          type=\"email\"\n          class=\"form-control form-control-user\"\n          name=\"email\"\n          id=\"exampleInputEmail\"\n          [formControl]=\"email\"\n          aria-describedby=\"emailHelp\"\n          placeholder=\"Enter Email Address...\"\n          required\n        />\n      </div>\n    </form>\n    <div *ngIf=\"isSubmitted && email.invalid\" class=\"error-msg\">\n      <div *ngIf=\"email.errors.required\">\n          Email is required\n      </div>\n      <div *ngIf=\"email.errors.pattern\">\n        Email is not valid\n    </div>\n    </div>\n      \n</mat-dialog-content>\n<mat-dialog-actions>\n  <button class=\"mat-raised-button mat-primary mr-3\" type=\"submit\" (click)=\"onSubmit()\">\n    Submit\n  </button>\n  <button class=\"mat-raised-button\" (click)=\"close()\">Cancel</button>\n</mat-dialog-actions>\n\n";
+    __webpack_exports__["default"] = "<h2 mat-dialog-title>Forgot Password</h2>\r\n<mat-dialog-content>\r\n    <form >\r\n    <div class=\"form-group\">\r\n        <input\r\n          type=\"email\"\r\n          class=\"form-control form-control-user\"\r\n          name=\"email\"\r\n          id=\"exampleInputEmail\"\r\n          [formControl]=\"email\"\r\n          aria-describedby=\"emailHelp\"\r\n          placeholder=\"Enter Email Address...\"\r\n          required\r\n        />\r\n      </div>\r\n    </form>\r\n    <div *ngIf=\"isSubmitted && email.invalid\" class=\"error-msg\">\r\n      <div *ngIf=\"email.errors.required\">\r\n          Email is required\r\n      </div>\r\n      <div *ngIf=\"email.errors.pattern\">\r\n        Email is not valid\r\n    </div>\r\n    </div>\r\n      \r\n</mat-dialog-content>\r\n<mat-dialog-actions>\r\n  <button class=\"mat-raised-button mat-primary mr-3\" type=\"submit\" (click)=\"onSubmit()\">\r\n    Submit\r\n  </button>\r\n  <button class=\"mat-raised-button\" (click)=\"close()\">Cancel</button>\r\n</mat-dialog-actions>\r\n\r\n";
     /***/
   },
 
@@ -778,7 +758,7 @@
       path: "login",
       loadChildren: () => Promise.all(
       /*! import() | login-login-module */
-      [__webpack_require__.e("common"), __webpack_require__.e("login-login-module")]).then(__webpack_require__.bind(null,
+      [__webpack_require__.e("default~login-login-module~pages-store-store-module"), __webpack_require__.e("login-login-module")]).then(__webpack_require__.bind(null,
       /*! ./login/login.module */
       "./src/app/login/login.module.ts")).then(m => m.LoginModule)
     }];
@@ -1019,26 +999,25 @@
     /* harmony import */
 
 
-    var _cooldash_pages_store_store_food_type_store_type_modal_store_type_modal_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
-    /*! ./cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component */
-    "./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.ts");
-    /* harmony import */
-
-
-    var _forgot_password_modal_forgot_password_modal_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+    var _forgot_password_modal_forgot_password_modal_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
     /*! ./forgot-password-modal/forgot-password-modal.component */
-    "./src/app/forgot-password-modal/forgot-password-modal.component.ts");
+    "./src/app/forgot-password-modal/forgot-password-modal.component.ts"); // import { StoreTypeModalComponent } from './cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component';
+    // import {MatDialogModule } from '@angular/material/dialog';
+
 
     let AppModule = class AppModule {};
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _cooldash_pages_store_order_accept_modal_accept_modal_component__WEBPACK_IMPORTED_MODULE_13__["AcceptModalComponent"], _cooldash_pages_store_category_storeCategoryModal_storeCategoryModal_component__WEBPACK_IMPORTED_MODULE_20__["StoreCategoryModalComponent"], _cooldash_pages_store_store_storeOutletModal_storeOutletModal_component__WEBPACK_IMPORTED_MODULE_21__["StoreOutletmodalComponent"], _cooldash_pages_store_store_food_type_store_type_modal_store_type_modal_component__WEBPACK_IMPORTED_MODULE_22__["StoreTypeModalComponent"], _forgot_password_modal_forgot_password_modal_component__WEBPACK_IMPORTED_MODULE_23__["ForgotPasswordModalComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"], ng6_toastr_notifications__WEBPACK_IMPORTED_MODULE_11__["ToastrModule"].forRoot(), _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], angular_web_storage__WEBPACK_IMPORTED_MODULE_12__["AngularWebStorageModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerModule"], _cooldash_pages_material_material_module__WEBPACK_IMPORTED_MODULE_7__["MaterialModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], agm_direction__WEBPACK_IMPORTED_MODULE_19__["AgmDirectionModule"], ngx_google_places_autocomplete__WEBPACK_IMPORTED_MODULE_17__["GooglePlaceModule"], _agm_core__WEBPACK_IMPORTED_MODULE_18__["AgmCoreModule"].forRoot({
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"], _cooldash_pages_store_order_accept_modal_accept_modal_component__WEBPACK_IMPORTED_MODULE_13__["AcceptModalComponent"], _cooldash_pages_store_category_storeCategoryModal_storeCategoryModal_component__WEBPACK_IMPORTED_MODULE_20__["StoreCategoryModalComponent"], _cooldash_pages_store_store_storeOutletModal_storeOutletModal_component__WEBPACK_IMPORTED_MODULE_21__["StoreOutletmodalComponent"], // StoreTypeModalComponent,
+      _forgot_password_modal_forgot_password_modal_component__WEBPACK_IMPORTED_MODULE_22__["ForgotPasswordModalComponent"]],
+      imports: [// MatDialogModule,
+      _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"], ng6_toastr_notifications__WEBPACK_IMPORTED_MODULE_11__["ToastrModule"].forRoot(), _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], angular_web_storage__WEBPACK_IMPORTED_MODULE_12__["AngularWebStorageModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerModule"], _cooldash_pages_material_material_module__WEBPACK_IMPORTED_MODULE_7__["MaterialModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], agm_direction__WEBPACK_IMPORTED_MODULE_19__["AgmDirectionModule"], ngx_google_places_autocomplete__WEBPACK_IMPORTED_MODULE_17__["GooglePlaceModule"], _agm_core__WEBPACK_IMPORTED_MODULE_18__["AgmCoreModule"].forRoot({
         apiKey: "AIzaSyDgWqhXSfEh-y2eBPFEH3mJ4wqcWsV4EJ8",
         libraries: ["geometry", "places"]
       })],
       providers: [_commonservice_auth_guard__WEBPACK_IMPORTED_MODULE_14__["AuthGuard"], _commonservice_authguard_guard_guard__WEBPACK_IMPORTED_MODULE_15__["AuthguardGuardGuard"], _cooldash_services_order_service__WEBPACK_IMPORTED_MODULE_16__["OrderService"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_10__["AppComponent"]],
-      entryComponents: [_cooldash_pages_store_order_accept_modal_accept_modal_component__WEBPACK_IMPORTED_MODULE_13__["AcceptModalComponent"], _cooldash_pages_store_category_storeCategoryModal_storeCategoryModal_component__WEBPACK_IMPORTED_MODULE_20__["StoreCategoryModalComponent"], _cooldash_pages_store_store_storeOutletModal_storeOutletModal_component__WEBPACK_IMPORTED_MODULE_21__["StoreOutletmodalComponent"], _cooldash_pages_store_store_food_type_store_type_modal_store_type_modal_component__WEBPACK_IMPORTED_MODULE_22__["StoreTypeModalComponent"], _forgot_password_modal_forgot_password_modal_component__WEBPACK_IMPORTED_MODULE_23__["ForgotPasswordModalComponent"]]
+      entryComponents: [_cooldash_pages_store_order_accept_modal_accept_modal_component__WEBPACK_IMPORTED_MODULE_13__["AcceptModalComponent"], _cooldash_pages_store_category_storeCategoryModal_storeCategoryModal_component__WEBPACK_IMPORTED_MODULE_20__["StoreCategoryModalComponent"], _cooldash_pages_store_store_storeOutletModal_storeOutletModal_component__WEBPACK_IMPORTED_MODULE_21__["StoreOutletmodalComponent"], // StoreTypeModalComponent,
+      _forgot_password_modal_forgot_password_modal_component__WEBPACK_IMPORTED_MODULE_22__["ForgotPasswordModalComponent"]]
     })], AppModule);
     /***/
   },
@@ -1272,7 +1251,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "button:disabled {\n  cursor: not-allowed;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FwcHR1bml4L0Rlc2t0b3AvRW5hbXVsL0pBRF9TVE9SRS9tYXphdF9zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL2NhdGVnb3J5L3N0b3JlQ2F0ZWdvcnlNb2RhbC9zdG9yZUNhdGVnb3J5TW9kYWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL2NhdGVnb3J5L3N0b3JlQ2F0ZWdvcnlNb2RhbC9zdG9yZUNhdGVnb3J5TW9kYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvY2F0ZWdvcnkvc3RvcmVDYXRlZ29yeU1vZGFsL3N0b3JlQ2F0ZWdvcnlNb2RhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImJ1dHRvbjpkaXNhYmxlZCB7XHJcbiAgICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xyXG4gIH0iLCJidXR0b246ZGlzYWJsZWQge1xuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xufSJdfQ== */";
+    __webpack_exports__["default"] = "button:disabled {\n  cursor: not-allowed;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvY2F0ZWdvcnkvc3RvcmVDYXRlZ29yeU1vZGFsL0M6XFxVc2Vyc1xccmFnaHZcXERlc2t0b3BcXERFVlxcVmVuZ29cXG1hemF0X3N0b3JlL3NyY1xcYXBwXFxjb29sZGFzaFxccGFnZXNcXHN0b3JlXFxjYXRlZ29yeVxcc3RvcmVDYXRlZ29yeU1vZGFsXFxzdG9yZUNhdGVnb3J5TW9kYWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL2NhdGVnb3J5L3N0b3JlQ2F0ZWdvcnlNb2RhbC9zdG9yZUNhdGVnb3J5TW9kYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxtQkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvY2F0ZWdvcnkvc3RvcmVDYXRlZ29yeU1vZGFsL3N0b3JlQ2F0ZWdvcnlNb2RhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImJ1dHRvbjpkaXNhYmxlZCB7XHJcbiAgICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xyXG4gIH0iLCJidXR0b246ZGlzYWJsZWQge1xuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xufSJdfQ== */";
     /***/
   },
 
@@ -1575,195 +1554,6 @@
   },
 
   /***/
-  "./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.scss":
-  /*!*******************************************************************************************************!*\
-    !*** ./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.scss ***!
-    \*******************************************************************************************************/
-
-  /*! exports provided: default */
-
-  /***/
-  function srcAppCooldashPagesStoreStoreFoodTypeStoreTypeModalStoreTypeModalComponentScss(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony default export */
-
-
-    __webpack_exports__["default"] = ".invalid-feedback {\n  display: block;\n  width: 100%;\n  margin-top: 0.14rem;\n  margin-left: 0.6rem;\n  font-size: 95%;\n  color: #f55353;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FwcHR1bml4L0Rlc2t0b3AvRW5hbXVsL0pBRF9TVE9SRS9tYXphdF9zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2Zvb2QtdHlwZS9zdG9yZS10eXBlLW1vZGFsL3N0b3JlLXR5cGUtbW9kYWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL2Zvb2QtdHlwZS9zdG9yZS10eXBlLW1vZGFsL3N0b3JlLXR5cGUtbW9kYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvZm9vZC10eXBlL3N0b3JlLXR5cGUtbW9kYWwvc3RvcmUtdHlwZS1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pbnZhbGlkLWZlZWRiYWNrIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDAuNnJlbTtcclxuICAgIGZvbnQtc2l6ZTogOTUlO1xyXG4gICAgY29sb3I6ICNmNTUzNTM7XHJcbiAgfVxyXG4gICIsIi5pbnZhbGlkLWZlZWRiYWNrIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xuICBtYXJnaW4tbGVmdDogMC42cmVtO1xuICBmb250LXNpemU6IDk1JTtcbiAgY29sb3I6ICNmNTUzNTM7XG59Il19 */";
-    /***/
-  },
-
-  /***/
-  "./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.ts":
-  /*!*****************************************************************************************************!*\
-    !*** ./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.ts ***!
-    \*****************************************************************************************************/
-
-  /*! exports provided: StoreTypeModalComponent */
-
-  /***/
-  function srcAppCooldashPagesStoreStoreFoodTypeStoreTypeModalStoreTypeModalComponentTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "StoreTypeModalComponent", function () {
-      return StoreTypeModalComponent;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material/dialog */
-    "./node_modules/@angular/material/esm2015/dialog.js");
-    /* harmony import */
-
-
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var _services_common_common_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../../../../../services/common/common.service */
-    "./src/app/cooldash/services/common/common.service.ts");
-    /* harmony import */
-
-
-    var _services_api_api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ../../../../../services/api/api.service */
-    "./src/app/cooldash/services/api/api.service.ts");
-    /* harmony import */
-
-
-    var ng6_toastr_notifications__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ng6-toastr-notifications */
-    "./node_modules/ng6-toastr-notifications/fesm2015/ng6-toastr-notifications.js");
-
-    let StoreTypeModalComponent = class StoreTypeModalComponent {
-      constructor(dialog, formBuilder, comm, api, toastr) {
-        this.dialog = dialog;
-        this.formBuilder = formBuilder;
-        this.comm = comm;
-        this.api = api;
-        this.toastr = toastr;
-        this.submitted = false;
-
-        this.setValues = () => {
-          if (this.item) {
-            this.categoryForm.patchValue({
-              name: this.item.name,
-              name_ar: this.item.name_ar
-            });
-          }
-        };
-
-        this.errorHandling = (control, error) => {
-          return this.categoryForm.controls[control].hasError(error);
-        };
-      }
-
-      ngOnInit() {
-        this.categoryForm = this.formBuilder.group({
-          name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]("", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])),
-          name_ar: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]("notUseAble")
-        });
-
-        if (this.item) {
-          this.setValues();
-        }
-      }
-
-      onSubmit() {
-        this.submitted = true;
-
-        if (this.categoryForm.valid && this.submitted) {
-          var data = {
-            name: this.categoryForm.controls["name"].value,
-            name_ar: this.categoryForm.controls["name_ar"].value,
-            storeId: this.restaurantId
-          };
-          this.api.addStoreFoodType(data).subscribe(res => {
-            if (res["response"]["success"]) {
-              this.toastr.successToastr(res["response"]["message"]);
-              this.dialog.close("yes");
-            } else {
-              this.toastr.errorToastr(res["response"]["message"]);
-              this.dialog.close("no");
-            }
-          });
-        }
-      }
-
-      close() {
-        this.dialog.close();
-      }
-
-      onUpdate() {
-        this.submitted = true;
-
-        if (this.categoryForm.valid && this.submitted) {
-          var data = {
-            name: this.categoryForm.controls["name"].value,
-            name_ar: this.categoryForm.controls["name_ar"].value,
-            updateId: this.item._id,
-            storeId: this.item.storeId
-          };
-          this.api.editStoreFoodType(data).subscribe(res => {
-            if (res["response"]["success"]) {
-              this.toastr.successToastr(res["response"]["message"]);
-              this.dialog.close("yes");
-            } else {
-              this.toastr.errorToastr(res["response"]["message"]);
-              this.dialog.close("no");
-            }
-          });
-        }
-      }
-
-    };
-
-    StoreTypeModalComponent.ctorParameters = () => [{
-      type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
-    }, {
-      type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]
-    }, {
-      type: _services_common_common_service__WEBPACK_IMPORTED_MODULE_4__["CommonService"]
-    }, {
-      type: _services_api_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"]
-    }, {
-      type: ng6_toastr_notifications__WEBPACK_IMPORTED_MODULE_6__["ToastrManager"]
-    }];
-
-    StoreTypeModalComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: "app-store-type-modal",
-      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./store-type-modal.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.html")).default,
-      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./store-type-modal.component.scss */
-      "./src/app/cooldash/pages/store/store/food-type/store-type-modal/store-type-modal.component.scss")).default]
-    })], StoreTypeModalComponent);
-    /***/
-  },
-
-  /***/
   "./src/app/cooldash/pages/store/store/storeOutletModal/storeOutletModal.component.scss":
   /*!*********************************************************************************************!*\
     !*** ./src/app/cooldash/pages/store/store/storeOutletModal/storeOutletModal.component.scss ***!
@@ -1779,7 +1569,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "button:disabled {\n  cursor: not-allowed;\n}\n\n.invalid-feedback {\n  display: block;\n  width: 100%;\n  margin-top: 0.14rem;\n  margin-left: 0.6rem;\n  font-size: 95%;\n  color: #f55353;\n}\n\nagm-map {\n  height: 350px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FwcHR1bml4L0Rlc2t0b3AvRW5hbXVsL0pBRF9TVE9SRS9tYXphdF9zdG9yZS9zcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL3N0b3JlT3V0bGV0TW9kYWwvc3RvcmVPdXRsZXRNb2RhbC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvc3RvcmVPdXRsZXRNb2RhbC9zdG9yZU91dGxldE1vZGFsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsbUJBQUE7QUNDRjs7QURFQTtFQUNFLGNBQUE7RUFDQSxXQUFBO0VBQ0EsbUJBQUE7RUFDQSxtQkFBQTtFQUNBLGNBQUE7RUFDQSxjQUFBO0FDQ0Y7O0FEQ0E7RUFDRSxhQUFBO0FDRUYiLCJmaWxlIjoic3JjL2FwcC9jb29sZGFzaC9wYWdlcy9zdG9yZS9zdG9yZS9zdG9yZU91dGxldE1vZGFsL3N0b3JlT3V0bGV0TW9kYWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJidXR0b246ZGlzYWJsZWQge1xyXG4gIGN1cnNvcjogbm90LWFsbG93ZWQ7XHJcbn1cclxuXHJcbi5pbnZhbGlkLWZlZWRiYWNrIHtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICB3aWR0aDogMTAwJTtcclxuICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xyXG4gIG1hcmdpbi1sZWZ0OiAwLjZyZW07XHJcbiAgZm9udC1zaXplOiA5NSU7XHJcbiAgY29sb3I6ICNmNTUzNTM7XHJcbn1cclxuYWdtLW1hcCB7XHJcbiAgaGVpZ2h0OiAzNTBweDtcclxufSIsImJ1dHRvbjpkaXNhYmxlZCB7XG4gIGN1cnNvcjogbm90LWFsbG93ZWQ7XG59XG5cbi5pbnZhbGlkLWZlZWRiYWNrIHtcbiAgZGlzcGxheTogYmxvY2s7XG4gIHdpZHRoOiAxMDAlO1xuICBtYXJnaW4tdG9wOiAwLjE0cmVtO1xuICBtYXJnaW4tbGVmdDogMC42cmVtO1xuICBmb250LXNpemU6IDk1JTtcbiAgY29sb3I6ICNmNTUzNTM7XG59XG5cbmFnbS1tYXAge1xuICBoZWlnaHQ6IDM1MHB4O1xufSJdfQ== */";
+    __webpack_exports__["default"] = "button:disabled {\n  cursor: not-allowed;\n}\n\n.invalid-feedback {\n  display: block;\n  width: 100%;\n  margin-top: 0.14rem;\n  margin-left: 0.6rem;\n  font-size: 95%;\n  color: #f55353;\n}\n\nagm-map {\n  height: 350px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvc3RvcmVPdXRsZXRNb2RhbC9DOlxcVXNlcnNcXHJhZ2h2XFxEZXNrdG9wXFxERVZcXFZlbmdvXFxtYXphdF9zdG9yZS9zcmNcXGFwcFxcY29vbGRhc2hcXHBhZ2VzXFxzdG9yZVxcc3RvcmVcXHN0b3JlT3V0bGV0TW9kYWxcXHN0b3JlT3V0bGV0TW9kYWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2Nvb2xkYXNoL3BhZ2VzL3N0b3JlL3N0b3JlL3N0b3JlT3V0bGV0TW9kYWwvc3RvcmVPdXRsZXRNb2RhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG1CQUFBO0FDQ0Y7O0FERUE7RUFDRSxjQUFBO0VBQ0EsV0FBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSxjQUFBO0VBQ0EsY0FBQTtBQ0NGOztBRENBO0VBQ0UsYUFBQTtBQ0VGIiwiZmlsZSI6InNyYy9hcHAvY29vbGRhc2gvcGFnZXMvc3RvcmUvc3RvcmUvc3RvcmVPdXRsZXRNb2RhbC9zdG9yZU91dGxldE1vZGFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYnV0dG9uOmRpc2FibGVkIHtcclxuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xyXG59XHJcblxyXG4uaW52YWxpZC1mZWVkYmFjayB7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgbWFyZ2luLXRvcDogMC4xNHJlbTtcclxuICBtYXJnaW4tbGVmdDogMC42cmVtO1xyXG4gIGZvbnQtc2l6ZTogOTUlO1xyXG4gIGNvbG9yOiAjZjU1MzUzO1xyXG59XHJcbmFnbS1tYXAge1xyXG4gIGhlaWdodDogMzUwcHg7XHJcbn0iLCJidXR0b246ZGlzYWJsZWQge1xuICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xufVxuXG4uaW52YWxpZC1mZWVkYmFjayB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB3aWR0aDogMTAwJTtcbiAgbWFyZ2luLXRvcDogMC4xNHJlbTtcbiAgbWFyZ2luLWxlZnQ6IDAuNnJlbTtcbiAgZm9udC1zaXplOiA5NSU7XG4gIGNvbG9yOiAjZjU1MzUzO1xufVxuXG5hZ20tbWFwIHtcbiAgaGVpZ2h0OiAzNTBweDtcbn0iXX0= */";
     /***/
   },
 
@@ -2612,7 +2402,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".error-msg {\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2FwcHR1bml4L0Rlc2t0b3AvRW5hbXVsL0pBRF9TVE9SRS9tYXphdF9zdG9yZS9zcmMvYXBwL2ZvcmdvdC1wYXNzd29yZC1tb2RhbC9mb3Jnb3QtcGFzc3dvcmQtbW9kYWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2ZvcmdvdC1wYXNzd29yZC1tb2RhbC9mb3Jnb3QtcGFzc3dvcmQtbW9kYWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxVQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9mb3Jnb3QtcGFzc3dvcmQtbW9kYWwvZm9yZ290LXBhc3N3b3JkLW1vZGFsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmVycm9yLW1zZ3tcbiAgICBjb2xvcjogcmVkO1xufSIsIi5lcnJvci1tc2cge1xuICBjb2xvcjogcmVkO1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".error-msg {\n  color: red;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9yZ290LXBhc3N3b3JkLW1vZGFsL0M6XFxVc2Vyc1xccmFnaHZcXERlc2t0b3BcXERFVlxcVmVuZ29cXG1hemF0X3N0b3JlL3NyY1xcYXBwXFxmb3Jnb3QtcGFzc3dvcmQtbW9kYWxcXGZvcmdvdC1wYXNzd29yZC1tb2RhbC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9yZ290LXBhc3N3b3JkLW1vZGFsL2ZvcmdvdC1wYXNzd29yZC1tb2RhbC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFVBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2ZvcmdvdC1wYXNzd29yZC1tb2RhbC9mb3Jnb3QtcGFzc3dvcmQtbW9kYWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZXJyb3ItbXNne1xyXG4gICAgY29sb3I6IHJlZDtcclxufSIsIi5lcnJvci1tc2cge1xuICBjb2xvcjogcmVkO1xufSJdfQ== */";
     /***/
   },
 
@@ -2814,7 +2604,7 @@
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! /home/apptunix/Desktop/Enamul/JAD_STORE/mazat_store/src/main.ts */
+    /*! C:\Users\raghv\Desktop\DEV\Vengo\mazat_store\src\main.ts */
     "./src/main.ts");
     /***/
   },

@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"common":"common","login-login-module":"login-login-module","cooldash-cooldash-module":"cooldash-cooldash-module","pages-store-store-module":"pages-store-store-module"}[chunkId]||chunkId) +    "-es5.js"
+/******/ 		return __webpack_require__.p + "" + ({"cooldash-cooldash-module":"cooldash-cooldash-module","default~login-login-module~pages-store-store-module":"default~login-login-module~pages-store-store-module","login-login-module":"login-login-module","pages-store-store-module":"pages-store-store-module"}[chunkId]||chunkId) +    "-es5.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
